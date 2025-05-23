@@ -1,0 +1,78 @@
+.footer-div {
+  position: relative;
+  background-color: #4f134b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8%;
+  padding-bottom: 3%;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  color: #9c025954;
+  line-height: 2;
+  font-size: clamp(12px, 2.3vw, 20px);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.2s linear,
+}
+
+.footer-div a:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow:
+    0 0 0.4vw #ff4ec4,
+    0 0 0.8vw #ff4ec4,
+    0 0 1.2vw #ff4ec4,
+    0 0 1.6vw #b20164,
+    0 0 2vw #b20164;
+}
+
+
+.footer-div.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.footer-div > img {
+  height: auto;
+  width: 50%;
+}
+
+.footer-content {
+  margin-left: 0;
+  padding-left: 0;
+  width: 60%;
+  display: flex;
+  list-style: none;    
+  justify-content: space-around;
+  align-items: center;
+  color: #9c025996;
+}
+
+.footer-div > hr {
+  width: 80%;
+  border: none;
+  border-top: 1px solid whitesmoke;
+  margin-top: 5%;
+  display: flex;
+  opacity: 60%;
+  box-shadow:
+    0 0 0.4vw #ff4ec4,
+    0 0 0.8vw #ff4ec4,
+    0 0 1.2vw #ff4ec4,
+    0 0 1.6vw #b20164,
+    0 0 2vw #b20164,
+    inset 0 0 0.4vw #ff4ec4,
+    inset 0 0 0.8vw #ff4ec4,
+    inset 0 0 1.2vw #ff4ec4,
+    inset 0 0 1.6vw #b20164,
+    inset 0 0 2vw #b20164;
+}
+
+.column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}

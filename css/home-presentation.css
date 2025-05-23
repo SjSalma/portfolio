@@ -1,0 +1,82 @@
+.presentation {
+  width: 100vw;
+  margin: 0;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 5%;
+  overflow: hidden;
+  background-color: whitesmoke;
+}
+
+.titre-presentation {
+  opacity: 0;
+  transform: translateY(5vh);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 4vh;
+  color: rgba(255, 255, 255, 0.9);
+  animation: neon-flicker 2.5s 1 forwards;
+  text-shadow:
+    0 0 0.4vw #ff4ec4,
+    0 0 0.8vw #ff4ec4,
+    0 0 1.2vw #ff4ec4,
+    0 0 1.6vw #b20164,
+    0 0 2vw #b20164;
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 0.4vw #ff4ec4,
+      0 0 0.8vw #ff4ec4,
+      0 0 1.2vw #ff4ec4,
+      0 0 1.6vw #b20164,
+      0 0 2vw #b20164;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.2;
+    text-shadow:
+      0 0 0.2vw #ff4ec4,
+      0 0 0.4vw #ff4ec4,
+      0 0 0.6vw #b20164;
+  }
+  70% {
+    opacity: 0.6;
+    text-shadow:
+      0 0 0.3vw #ff4ec4,
+      0 0 0.6vw #ff4ec4,
+      0 0 1vw #b20164;
+  }
+}
+
+.titre-presentation.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.a-propos-de-moi,
+.comment-je-travaille {
+  padding: 1.5%;
+  margin-bottom: 2%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.presentation h3 {
+  color: #b20164;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+.presentation p {
+  color: #333;
+  line-height: 1.6;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+}
