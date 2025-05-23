@@ -15,12 +15,13 @@ Ce site a été conçu pour le cours de SEG 3525 afin d'y présenter les projets
 ```
 portfolio/
 │
-├── html/                        # Pages HTML
+├── html/                        # Pages HTML autre que la page principale
 ├── css/                         # Feuilles de style CSS
 ├── javascript/                  # Comportement interactif
 ├── images/                      # Images utilisés sur le site
 ├── README.md                    # Ce fichier
 └── style_guidelines.md          # Page d'accueil du portfolio
+└── index.html                   # Page principale du site
 ```
 
 ## Accès au site
