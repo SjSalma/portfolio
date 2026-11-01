@@ -1,12 +1,12 @@
-# Portfolio Web — Salma Sajid
+# Portfolio Web - Salma Sajid
 
 Bienvenue sur mon portfolio ! Ce site présente mon parcours, mes expériences, mes projets et mes compétences en génie logiciel. Je l'ai conçu comme un espace personnel et professionnel, avec une attention particulière portée à l'ergonomie, à l'accessibilité et à l'expérience utilisateur.
 
 ## Technologies utilisées
 
-- **HTML & CSS** — Structure du site, mise en page responsive et thèmes visuels.
-- **JavaScript** — Animations, interactions, navigation et gestion des langues.
-- **Git & GitHub** — Gestion des versions et publication du projet.
+- **HTML & CSS** - Structure du site, mise en page responsive et thèmes visuels.
+- **JavaScript** - Animations, interactions, navigation et gestion des langues.
+- **Git & GitHub** - Gestion des versions et publication du projet.
 
 ## Fonctionnalités
 
@@ -45,7 +45,7 @@ Pour le consulter en local, ouvre le dossier du projet dans **Visual Studio Code
 
 **Site en ligne :** [Accéder à mon portfolio](https://sjsalma.github.io/portfolio/)
 
-**Code source :** [GitHub — SjSalma/portfolio](https://github.com/SjSalma/portfolio)
+**Code source :** [GitHub - SjSalma/portfolio](https://github.com/SjSalma/portfolio)
 
 ## Mise à jour du contenu
 
