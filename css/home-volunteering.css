@@ -1,0 +1,372 @@
+/* SALMA SAJID — home-volunteering.css | Section Beyond Code */
+
+.volunteer-section {
+  --bc-muted: #EDD0C5;
+  --bc-soft: #F0B7AC;
+  --bc-line: rgba(255,241,233,.26);
+  --bc-card: rgba(25,5,10,.14);
+  background: linear-gradient(110deg,#48141d,#792a33 65%,#4b1520);
+  color: var(--ivory);
+}
+.volunteer-section .section-index { color:#DAB0A4; }
+.volunteer-section .section-heading h2 em { color:#E0A3A0; }
+
+/* Three image + copy stories: AMUO / FMG / MAMUN. */
+.volunteer-section .volunteer-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(26px,4vw,68px);
+  align-items:center;
+}
+.volunteer-feature + .volunteer-feature {
+  margin-top:clamp(38px,5vw,80px);
+  padding-top:clamp(26px,3.2vw,42px);
+  border-top:1px solid var(--bc-line);
+}
+.volunteer-section .volunteer-feature--reverse > .volunteer-feature-photo { order:2; }
+.volunteer-section .volunteer-feature--reverse > .volunteer-feature-copy { order:1; }
+
+/* Photo panel: existing AMUO crop preserved; new image panels identical. */
+.volunteer-section .volunteer-art.volunteer-photo {
+  position:relative;
+  display:block;
+  width:100%;
+  height:clamp(350px,25vw,430px);
+  min-width:0; min-height:0;
+  padding:0;
+  overflow:hidden;
+  background:#351017;
+  border:1px solid #8E5555;
+  border-radius:24px;
+  isolation:isolate;
+}
+.volunteer-section .volunteer-art.volunteer-photo::before { content:none; }
+.volunteer-section .volunteer-photo img {
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center 40%;
+}
+.volunteer-section .volunteer-feature-copy { align-self:center; min-width:0; }
+.volunteer-section .volunteer-copy .eyebrow { color:var(--bc-soft); }
+.volunteer-section .volunteer-copy h3 {
+  font-family:var(--serif-reading);
+  font-size:clamp(1.4rem,2.2vw,2.45rem);
+  font-weight:500;
+  line-height:1.28;
+  margin:14px 0 16px;
+  max-width:680px;
+}
+.volunteer-section .volunteer-copy p {
+  line-height:1.8;
+  font-size:clamp(.82rem,.72rem + .14vw,.93rem);
+  color:var(--bc-muted);
+  max-width:640px;
+  margin:0 0 18px;
+}
+
+/* Smaller, photo-led Bayti and Léo Club cards. */
+.volunteer-community {
+  margin-top:clamp(38px,5vw,74px);
+  padding-top:clamp(27px,3vw,38px);
+  border-top:1px solid var(--bc-line);
+}
+.volunteer-community-heading {
+  margin:0 0 19px;
+  color:var(--bc-soft);
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.14em;
+}
+.volunteer-community-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(16px,2.5vw,30px);
+}
+.volunteer-community-card {
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--bc-line);
+  border-radius:21px;
+  background:var(--bc-card);
+}
+.volunteer-community-image {
+  width:100%; aspect-ratio:16 / 9;
+  background:#351017;
+  overflow:hidden;
+}
+.volunteer-community-image img {
+  display:block;
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.volunteer-community-card-body { padding:clamp(17px,2.1vw,27px); }
+.volunteer-card-period { color:var(--bc-soft); font-size:.72rem; font-weight:700; letter-spacing:.08em; }
+.volunteer-community-card h4 {
+  margin:10px 0 9px;
+  font-family:var(--serif-reading);
+  font-size:clamp(1.3rem,1.8vw,1.85rem);
+  line-height:1.28;
+  font-weight:500;
+}
+.volunteer-community-card p { margin:0; color:var(--bc-muted); font-size:.88rem; line-height:1.72; }
+.volunteer-community-card .volunteer-card-impact { margin-top:12px; color:#F5D7A7; font-size:.81rem; }
+
+/* Same continuous layout in light and adapted-color themes. */
+body[data-theme="light"] .volunteer-section {
+  --bc-muted:#69413C;
+  --bc-soft:#904047;
+  --bc-line:rgba(63,17,22,.24);
+  --bc-card:rgba(100,38,48,.055);
+}
+body[data-vision="safe"] .volunteer-section {
+  --bc-muted:var(--safe-muted);
+  --bc-soft:var(--safe-accent);
+  --bc-line:var(--safe-border);
+  --bc-card:var(--safe-card);
+}
+body[data-vision="safe"] .volunteer-section .volunteer-art.volunteer-photo,
+body[data-vision="safe"] .volunteer-community-card { border-color:var(--safe-border); }
+body[data-vision="safe"] .volunteer-community-card .volunteer-card-impact { color:var(--safe-text); }
+
+@media (max-width:800px) {
+  .volunteer-section .volunteer-grid {
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .volunteer-section .volunteer-feature--reverse > .volunteer-feature-photo,
+  .volunteer-section .volunteer-feature--reverse > .volunteer-feature-copy { order:initial; }
+  .volunteer-section .volunteer-art.volunteer-photo {
+    height:auto;
+    aspect-ratio:3 / 2;
+  }
+}
+@media (max-width:680px) {
+  .volunteer-community-grid { grid-template-columns:1fr; }
+}
+@media (max-width:580px) {
+  .volunteer-section .volunteer-art.volunteer-photo { aspect-ratio:4 / 3; border-radius:18px; }
+  .volunteer-community-card { border-radius:17px; }
+  .volunteer-community-card-body { padding:18px; }
+}
+
+
+/* AU-DELÀ DU CODE — PHOTOS PLUS COMPACTES */
+
+@media (min-width: 801px) {
+
+  /* Photos à gauche, texte à droite */
+  .volunteer-section .volunteer-grid {
+    grid-template-columns:
+      minmax(0, 0.85fr)
+      minmax(0, 1.15fr);
+    gap: clamp(24px, 3.5vw, 55px);
+  }
+
+  /* Photos à droite, texte à gauche */
+  .volunteer-section .volunteer-feature--reverse {
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      minmax(0, 0.85fr);
+  }
+
+  /* Réduction de la hauteur */
+  .volunteer-section .volunteer-art.volunteer-photo {
+    height: clamp(270px, 22vw, 340px);
+  }
+}
+
+
+/* AU-DELÀ DU CODE — PHOTOS BAYTI ET LÉO CLUB */
+
+@media (min-width: 681px) {
+  .volunteer-section .volunteer-community-image {
+    height: clamp(190px, 17vw, 260px);
+    aspect-ratio: auto;
+  }
+}
+
+/* Adapter les photos sur mobile */
+@media (max-width: 680px) {
+  .volunteer-section .volunteer-community-image {
+    height: clamp(170px, 48vw, 230px);
+    aspect-ratio: auto;
+  }
+}
+
+/* Garder les personnes visibles dans les photos */
+.volunteer-section .volunteer-community-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.volunteer-section .volunteer-community-card:nth-child(2)
+.volunteer-community-image img {
+  object-position: center 75%;
+}
+
+
+/* BAYTI — TEXTE MIS EN VALEUR */
+
+/* Mode clair : bordeaux soutenu */
+body[data-theme="light"]:not([data-vision="safe"])
+.volunteer-community-card .volunteer-card-impact {
+  color: #8A223E;
+}
+
+/* Couleurs adaptées : sombre et clair */
+body[data-vision="safe"]
+.volunteer-community-card .volunteer-card-impact {
+  color: var(--safe-accent);
+}
+
+
+/* AU-DELÀ DU CODE — ESPACEMENT FMG */
+
+@media (min-width: 801px) {
+
+  /* Réduire l'espace entre les colonnes */
+  .volunteer-section
+  .volunteer-grid.volunteer-feature--reverse {
+    column-gap: clamp(24px, 3vw, 48px);
+  }
+
+  /* Utiliser toute la largeur disponible pour le texte */
+  .volunteer-section
+  .volunteer-feature--reverse .volunteer-copy h3,
+  .volunteer-section
+  .volunteer-feature--reverse .volunteer-copy p {
+    max-width: 100%;
+  }
+}
+
+/* AU-DELÀ DU CODE — PHOTOS MOINS HAUTES */
+
+@media (min-width: 801px) {
+  .volunteer-section .volunteer-art.volunteer-photo {
+    width: 100%;
+    height: clamp(240px, 18vw, 310px);
+    overflow: hidden;
+  }
+
+  .volunteer-section .volunteer-art.volunteer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+
+/* BAYTI ET LÉO CLUB — MÊME FOND QUE LE CARROUSEL */
+
+/* Mode sombre */
+.volunteer-section .volunteer-community-card {
+  background: rgba(48, 15, 20, 0.92);
+}
+
+/* Mode clair */
+body[data-theme="light"]:not([data-vision="safe"])
+.volunteer-section .volunteer-community-card {
+  background: #FFF1E9;
+}
+
+/* Modes couleurs adaptées */
+body[data-vision="safe"]
+.volunteer-section .volunteer-community-card {
+  background: var(--safe-card);
+}
+
+
+/* BAYTI ET LÉO CLUB — SUPPRIMER LES CADRES */
+
+/* Cartes sans fond ni contour */
+.volunteer-section .volunteer-community-card {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  overflow: visible;
+}
+
+/* Seules les photos conservent un contour */
+.volunteer-section .volunteer-community-image {
+  box-sizing: border-box;
+  border: 1px solid var(--bc-line);
+  border-radius: 21px;
+  overflow: hidden;
+}
+
+/* Garder le cadrage des images */
+.volunteer-section .volunteer-community-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Couleurs adaptées */
+body[data-vision="safe"]
+.volunteer-section .volunteer-community-image {
+  border-color: var(--safe-border);
+}
+
+/* Mobile */
+@media (max-width: 580px) {
+  .volunteer-section .volunteer-community-image {
+    border-radius: 17px;
+  }
+}
+
+/* BAYTI ET LÉO CLUB — PLUS D'ESPACE ENTRE LES COLONNES */
+
+@media (min-width: 681px) {
+  .volunteer-section .volunteer-community-grid {
+    column-gap: clamp(36px, 4vw, 60px);
+  }
+}
+
+/* AU-DELÀ DU CODE — ESPACEMENT VERTICAL UNIFORME */
+
+@media (min-width: 801px) {
+
+  .volunteer-section {
+    --volunteer-spacing: clamp(48px, 4.2vw, 72px);
+  }
+
+  /* Même espace au-dessus et au-dessous
+     du contenu pour FMG et MAMUN */
+  .volunteer-section
+  .volunteer-feature + .volunteer-feature {
+    margin-top: 0;
+    padding-top: var(--volunteer-spacing);
+    padding-bottom: var(--volunteer-spacing);
+    align-items: center;
+  }
+
+  /* Éviter un espace supplémentaire avant Bayti */
+  .volunteer-section .volunteer-community {
+    margin-top: 0;
+    padding-top: var(--volunteer-spacing);
+  }
+
+  /* Annuler les anciens décalages manuels */
+  .volunteer-section
+  .volunteer-feature > .volunteer-feature-photo,
+  .volunteer-section
+  .volunteer-feature > .volunteer-feature-copy {
+    top: auto !important;
+  }
+}
+
+
+/* AU-DELÀ DU CODE — ESPACEMENT SOUS CHAQUE BLOC */
+
+@media (min-width: 801px) {
+  .volunteer-section .volunteer-feature {
+    padding-bottom: var(--volunteer-spacing);
+  }
+}

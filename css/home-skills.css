@@ -1,0 +1,185 @@
+/* SALMA SAJID — home-skills.css | Style isolé par composant */
+
+/* SKILLS */
+.skills-section {
+  color: var(--cranberry);
+  background: var(--ivory);
+}
+
+.skills-intro {
+  width: 100%;
+  max-width: none;
+  margin: -14px 0 32px;
+  font-family: var(--serif-reading);
+  font-size: clamp(18px, 2vw, 27px);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 15px;
+}
+
+.skill-card {
+  background: #f6e6d7;
+  border: 1px solid #d3b4a6;
+  padding: 26px 22px 28px;
+  min-height: 280px;
+  border-radius: 12px;
+  transition: transform .35s,background .35s;
+}
+
+.skill-symbol {
+  display: block;
+  font-family: var(--serif-reading);
+  color: #91414c;
+  font-size: 34px;
+  min-height: 53px;
+}
+
+.skill-card h3 {
+  font-family: var(--serif-reading);
+  font-weight: 500;
+  font-size: clamp(19px,1.5vw,24px);
+  margin: 4px 0 23px;
+}
+
+.skill-card .chip-list span {
+  background: #fceee3;
+  color: #633942;
+  border: 1px solid #d2b2a5;
+}
+
+/* === COMPÉTENCES : DEUX SOUS-SECTIONS === */
+.skills-section .skills-subsection { margin-top: 36px; }
+.skills-section .skills-subsection + .skills-subsection { margin-top: 42px; }
+.skills-section .skills-subsection-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0 0 20px;
+  color: inherit;
+  font-family: var(--sans);
+  font-size: clamp(.85rem, .72rem + .35vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: .13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+.skills-section .skills-subsection-title::after {
+  content: "";
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: .22;
+}
+.skills-section .skills-soft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+.skills-section .skill-card.skill-card--soft {
+  display: flex;
+  flex-direction: column;
+  min-height: 190px;
+  padding: 20px 20px 22px;
+}
+.skills-section .skill-card--soft .skill-symbol {
+  min-height: 42px;
+  font-size: 26px;
+}
+.skills-section .skill-card--soft h4 {
+  margin: 0 0 8px;
+  font-family: var(--serif-reading);
+  font-size: clamp(1.2rem, 1.35vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.skills-section .skill-card--soft p {
+  margin: 0;
+  max-width: 35ch;
+  font-size: clamp(.85rem, .72rem + .2vw, .98rem);
+  line-height: 1.55;
+  color: inherit;
+  opacity: .85;
+}
+@media (max-width: 1050px) {
+  .skills-section .skills-soft-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 580px) {
+  .skills-section .skills-subsection { margin-top: 28px; }
+  .skills-section .skills-subsection + .skills-subsection { margin-top: 32px; }
+  .skills-section .skills-subsection-title { gap: 12px; }
+  .skills-section .skills-soft-grid { grid-template-columns: 1fr; gap: 10px; }
+  .skills-section .skill-card.skill-card--soft { min-height: 0; padding: 18px; }
+}
+
+
+/* Titre des compétences transversales aligné à droite */
+
+.skills-section #transferable-skills-title {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+
+/* Icônes harmonisées pour les 8 compétences — 2026 */
+.skills-section .skill-symbol {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 38px;
+  min-height: 42px;
+  line-height: 1;
+}
+.skills-section .skill-symbol svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 31px;
+  height: 31px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.skills-section .skill-card--soft .skill-symbol svg {
+  width: 28px;
+  height: 28px;
+}
+
+
+/* COMPÉTENCES TRANSVERSALES — GRILLE 2 × 2 COMPACTE */
+
+@media (min-width: 391px) and (max-width: 580px) {
+  .skills-section .skills-soft-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .skills-section .skill-card.skill-card--soft {
+    box-sizing: border-box;
+    height: auto;
+    min-height: 200px;
+    padding: 16px 14px;
+  }
+
+  .skills-section .skill-card--soft .skill-symbol {
+    min-height: 36px;
+  }
+
+  .skills-section .skill-card--soft h4 {
+    font-size: clamp(16px, 3.8vw, 19px);
+    line-height: 1.15;
+    margin: 0 0 8px;
+  }
+
+  .skills-section .skill-card--soft p {
+    max-width: none;
+    font-size: clamp(12px, 2.7vw, 14px);
+    line-height: 1.4;
+    margin: 0;
+  }
+}

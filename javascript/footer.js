@@ -1,15 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const footer = document.querySelector('.footer-div');
+/* Portfolio Velvet Cherry — scripts organisés par composant, comme ton premier portfolio. */
+'use strict';
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const ratio = entry.intersectionRatio;
-
-      footer.style.opacity = ratio;
-    });
-  }, {
-    threshold: Array.from({ length: 101 }, (_, i) => i / 100) // 0.00 → 1.00
-  });
-
-  if (footer) observer.observe(footer);
-});
+document.getElementById('current-year').textContent = String(new Date().getFullYear());
+translate();
+applyTheme();
+applyVision();
+updateScrollEffects();

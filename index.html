@@ -1,184 +1,703 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>PORTFOLIO - Home</title>
-        
-        <link rel="stylesheet" type="text/css" href="css/home-intro.css">
-        <link rel="stylesheet" type="text/css" href="css/font.css">
-        <link rel="stylesheet" type="text/css" href="css/home-presentation.css">
-        <link rel="stylesheet" type="text/css" href="css/home-designs.css">
-        
-        <link rel="stylesheet" type="text/css" href="css/navbar.css">
-        
-        <link rel="stylesheet" type="text/css" href="css/footer.css" />
-        
-        <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        />
-        
-    </head>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#3f1116">
+  <meta name="description" content="Salma Sajid is a Software Engineering co-op student in Ottawa. Explore her experience, projects, skills and community involvement.">
+  <meta property="og:title" content="Salma Sajid | Software Engineering">
+  <meta property="og:description" content="Software, systems and practical problem-solving. Explore my work and experience.">
+  <meta property="og:type" content="website">
+  <title>Salma Sajid - Portfolio</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=Literata:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/salma-portrait.webp">
 
-    <body>
-        <div class="navbar_container">
-            <header>
-            <input type="checkbox" id="nav_toggle" class="nav_checkbox" />
-                <label for="nav_toggle" class="nav_toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="index.html" class="nav-link" data-text="Home">Home</a>
-                        </li>
-                        <li>
-                            <a href="https://sjsalma.github.io/nail-by-SALMA/" class="nav-link" data-text="devoir 1">Devoir 1</a>
-                        </li>
-                        <li>
-                            <a href="https://sjsalma.github.io/memory-game/" class="nav-link" data-text="devoir 2">Devoir 2</a>
-                        </li>
-                        <li>
-                            <a href="https://sjsalma.github.io/maison-salma/" class="nav-link" data-text="devoir 3">Devoir 3</a>
-                        </li>
-                        <li>
-                            <a href="https://sjsalma.github.io/tableau-de-bord/" class="nav-link" data-text="devoir 4">Devoir 4</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-        </div> 
+<!-- Feuilles CSS organisées par composants et thèmes ; conserver cet ordre. -->
+<link rel="stylesheet" href="css/font.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/home-intro.css">
+<link rel="stylesheet" href="css/home-presentation.css">
+<link rel="stylesheet" href="css/home-experience.css">
+<link rel="stylesheet" href="css/home-designs.css">
+<link rel="stylesheet" href="css/home-skills.css">
+<link rel="stylesheet" href="css/home-volunteering.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/color-safe.css">
+<link rel="stylesheet" href="css/hero-dynamic.css">
+<link rel="stylesheet" href="css/project-carousel.css">
+<link rel="stylesheet" href="css/arabic-rtl.css">
+<link rel="stylesheet" href="css/organization-icons.css">
 
-        <div class="intro">
-            <img src="images/intro.png" class="photo-anim1">
-            <img src="images/titre.png" class="photo-anim2">
+<!-- Scripts chargés en différé, dans un ordre volontaire (variables partagées). -->
+<script src="javascript/language.js" defer></script>
+<script src="javascript/theme.js" defer></script>
+<script src="javascript/navbar.js" defer></script>
+<script src="javascript/home-designs.js" defer></script>
+<script src="javascript/home-intro.js" defer></script>
+<script src="javascript/home-presentation.js" defer></script>
+<script src="javascript/footer.js" defer></script>
+
+</head>
+<body data-theme="dark">
+  <a class="skip-link" href="#about" data-i18n="skip">Skip to content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#home" aria-label="Salma Sajid - home" data-i18n-aria-label="brandAria">
+        <span class="brand-mark">SS<span class="brand-dot">.</span></span>
+        <span class="brand-name" data-i18n="brandName">SALMA SAJID</span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-i18n-aria-label="navAria">
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#projects" data-i18n="navProjects">Projects</a>
+        <a href="#skills" data-i18n="navSkills">Skills</a>
+        <a href="#volunteering" data-i18n="navVolunteering">Beyond code</a>
+      </nav>
+      
+<div class="header-actions">
+
+  <!-- LANGUAGE SELECTOR -->
+  <div class="language-slot">
+
+    <details
+      class="language-dropdown"
+      id="language-dropdown"
+    >
+
+      <summary
+        class="language-trigger"
+        aria-label="Choose language"
+        data-i18n-aria-label="languageAria"
+      >
+
+        <!-- Drapeau de la langue active (mis à jour par language.js) -->
+        <img
+          id="current-language-flag"
+          class="language-flag language-flag-current"
+          src="https://flagcdn.com/w40/gb.png"
+          width="24"
+          height="17"
+          alt=""
+          aria-hidden="true"
+        >
+
+        <!-- Current language -->
+        <span id="current-language">EN</span>
+
+        <!-- Chevron -->
+        <svg
+          class="language-chevron"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+
+      </summary>
+
+      <!-- LANGUAGE OPTIONS -->
+      <div
+        class="language-menu"
+        role="group"
+        aria-label="Choose language"
+        data-i18n-aria-label="languageAria"
+      >
+
+        <!-- French -->
+        <button
+          class="language-button"
+          type="button"
+          data-language="fr"
+          aria-pressed="false"
+        >
+          <img
+            class="language-flag"
+            src="https://flagcdn.com/w40/fr.png"
+            alt=""
+          >
+          <span>FR</span>
+        </button>
+
+        <!-- English -->
+        <button
+          class="language-button"
+          type="button"
+          data-language="en"
+          aria-pressed="true"
+        >
+          <img
+            class="language-flag"
+            src="https://flagcdn.com/w40/gb.png"
+            alt=""
+          >
+          <span>EN</span>
+        </button>
+
+        <!-- Arabic: formal Arabic with RTL reading direction -->
+        <button class="language-button" type="button" data-language="ar" aria-pressed="false">
+          <img class="language-flag" src="https://flagcdn.com/w40/ma.png" alt="">
+          <span>AR</span>
+        </button>
+
+      </div>
+
+    </details>
+
+  </div>
+
+  <!-- THEME BUTTON FOLLOWS -->
+
+        <button class="theme-button" id="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.3 15.4A8.5 8.5 0 0 1 8.6 3.7a8.7 8.7 0 1 0 11.7 11.7Z"/></svg>
+        </button>
+        <div class="vision-control">
+          <button
+            class="theme-button vision-button"
+            id="vision-toggle"
+            type="button"
+            aria-pressed="false"
+            aria-label="Enable adapted colors"
+            aria-describedby="vision-tooltip"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+
+          <div
+            class="vision-tooltip"
+            id="vision-tooltip"
+            role="tooltip"
+          >
+            <strong data-i18n="visionHelpTitle">Accessible colors</strong>
+
+            <p data-i18n="visionHelpDescription">Adjusts contrast and color differences to make the site easier to use with some forms of color vision deficiency.</p>
+          </div>
+        </div>
+        <a class="header-resume" href="documents/Salma-Sajid-Resume.docx" download>
+          <span data-i18n="resumeShort">Resume</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M12 3v11"/>
+            <path d="m7 11 5 5 5-5"/>
+            <path d="M5 20h14"/>
+          </svg>
+        </a>
+        <button class="menu-button" id="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu" data-i18n-aria-label="menuOpen">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 01 HERO: photo rises on page load; headline animates in staggered layers. -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+      <div class="shell hero-layout">
+        <div class="hero-content">
+          <p class="eyebrow hero-eyebrow hero-entrance delay-1" data-i18n="hello">HELLO, I'M</p>
+          <h1 class="hero-title" id="hero-title" aria-label="Salma Sajid" data-i18n-aria-label="heroName">
+            <span class="hero-title-first hero-entrance delay-2" data-i18n="heroFirstName">SALMA</span>
+            <span class="hero-title-last hero-entrance delay-3" data-i18n="heroLastName">SAJID</span>
+          </h1>
+          <div class="hero-caption hero-entrance delay-4">
+            <p class="hero-role" data-i18n="heroRole">SOFTWARE ENGINEERING<br>CO-OP STUDENT</p>
+            <p class="hero-description" data-i18n="heroDescription">I build software, simplify workflows and find practical solutions to complex problems.</p>
+          </div>
+        </div>
+        <div class="hero-media" id="hero-media">
+          <div class="hero-media-drift" id="hero-media-drift">
+            <!-- Photo et lumières : même repère et même mouvement au scroll -->
+            <div class="portrait-stage">
+              <div class="portrait-glow" aria-hidden="true"></div>
+              <div class="portrait-ring" aria-hidden="true"></div>
+              <img class="hero-portrait" src="images/salma-portrait.webp" width="1948" height="1461" alt="Portrait of Salma Sajid" data-i18n-alt="portraitAlt" fetchpriority="high">
+            </div>
+          </div>
+        </div>
+        <div class="hero-bottom hero-entrance delay-5">
+          <span><span class="meta-symbol" aria-hidden="true">⌖</span> <span data-i18n="heroLocation">Ottawa, Canada</span></span>
+          <a href="mailto:sjsalma05@gmail.com"><span class="meta-symbol" aria-hidden="true">✉</span> sjsalma05@gmail.com</a>
+          <a href="https://github.com/SjSalma" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/salma-sajid/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+        <!-- Aligné avec le contenu du .shell, pas avec le bord de la fenêtre -->
+        <a class="scroll-prompt" href="#about" aria-label="Scroll down" data-i18n-aria-label="scrollAria">
+          <span data-i18n="scroll">SCROLL TO EXPLORE</span>
+          <span class="scroll-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 4v15m-6-6 6 6 6-6"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 02 ABOUT -->
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <span class="section-index">01 /</span>
+          <h2 id="about-title"><span data-i18n="aboutHeading">ABOUT</span> <em data-i18n="aboutAccent">ME.</em></h2>
+          <span class="section-rule" aria-hidden="true"></span>
+        </div>
+        <div class="about-grid">
+          <div class="about-intro" data-reveal>
+            <p class="lead" data-i18n="aboutLead">I’m a Software Engineering co-op student at the University of Ottawa. Through my work and projects, I’ve gained experience in digital systems, automation and web development. I enjoy turning ideas into tools that are useful, clear and easy to work with.</p>
+          </div>
+          <div class="about-visual" data-reveal>
+            <img
+              class="about-photo"
+              src="images/uottawa-campus.webp"
+              alt="Pavillon Tabaret de l'Université d'Ottawa"
+              data-i18n-alt="uottawaPhotoAlt"
+              width="1470"
+              height="980"
+              loading="lazy"
+            >
+          </div>
+          <dl class="about-facts" data-reveal>
+            <div class="fact"><dt data-i18n="educationLabel">EDUCATION</dt><dd data-i18n="educationValue">University of Ottawa · Software Engineering (CO‑OP)</dd></div>
+            <div class="fact"><dt data-i18n="gradLabel">EXPECTED GRADUATION</dt><dd data-i18n="gradValue">December 2027</dd></div>
+            <div class="fact"><dt data-i18n="languagesLabel">LANGUAGES</dt><dd data-i18n="languagesValue">French &amp; Arabic (native) · English (fluent)</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 EXPERIENCE: click an entry to read more. -->
+    <section class="section experience-section" id="experience" aria-labelledby="experience-title">
+      <div class="shell">
+        <div class="section-heading" data-reveal><span class="section-index">02 /</span><h2 id="experience-title" data-i18n="experienceHeading">EXPERIENCE.</h2><span class="section-rule" aria-hidden="true"></span></div>
+        <div class="section-subheading" data-reveal>
+          <p data-i18n="experienceSubtitle">Hands-on experience, new challenges and meaningful teamwork.</p>
+        </div>
+        <div class="experience-list">
+          <!-- Kruger: second CO-OP + part-time first, then first CO-OP. -->
+          <details class="experience-item" data-reveal>
+            <summary>
+              <span class="experience-year">2025 - <span data-i18n="present">PRESENT</span></span>
+              <span class="experience-summary">
+                <span class="org-icon" aria-hidden="true"><img src="images/org-icons/kruger.png" alt="" loading="lazy"></span>
+                <strong>Kruger Products</strong>
+                <small data-i18n="krugerRole">Computer Engineering · Operational Technology (OT) · Co-op and part-time</small>
+              </span>
+              <span class="experience-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="experience-detail">
+              <div class="experience-detail-content">
+                <!-- Second CO-OP and subsequent part-time role -->
+                <section class="experience-phase" aria-labelledby="kruger-recent-heading">
+                  <h4 class="experience-phase-title" id="kruger-recent-heading" data-i18n="krugerRecentHeading">Second co-op term and part-time role</h4>
+                  <p class="experience-phase-dates" data-i18n="krugerRecentDates">May–Aug 2026 · Part-time since Sep 2026</p>
+                  <ul>
+                    <li data-i18n="krugerBullet1">Coordinated a large SharePoint migration across teams, from organizing files to managing access.</li>
+                    <li data-i18n="krugerBullet2">Analyzed shared drives to identify duplicate and empty files and guide migration decisions.</li>
+                    <li data-i18n="krugerBullet3">Built a Power Apps barcode-scanning app to compare expected and received quantities.</li>
+                    <li data-i18n="krugerBullet4">Improved Power BI dashboards and connected APIs through Power Automate to simplify reporting and workflows.</li>
+                  </ul>
+                  <div class="chip-list"><span>SharePoint</span><span>Power Apps</span><span>Power BI</span><span>Power Automate</span></div>
+                </section>
+
+                <!-- First CO-OP -->
+                <section class="experience-phase" aria-labelledby="kruger-first-heading">
+                  <h4 class="experience-phase-title" id="kruger-first-heading" data-i18n="krugerFirstHeading">First co-op term</h4>
+                  <p class="experience-phase-dates" data-i18n="krugerFirstDates">Sep–Dec 2025</p>
+                  <ul>
+                    <li data-i18n="krugerFirstBullet1">Wrote Python scripts using APIs to automate data extraction and repetitive tasks.</li>
+                    <li data-i18n="krugerFirstBullet2">Updated and improved Power BI dashboards covering effluents, logistics, health and safety, and energy.</li>
+                    <li data-i18n="krugerFirstBullet3">Created forms and automated internal workflows with Power Automate.</li>
+                  </ul>
+                  <div class="chip-list"><span>Python</span><span>APIs</span><span>Power BI</span><span>Power Automate</span></div>
+                </section>
+              </div>
+            </div>
+          </details>
+
+          <!-- University of Ottawa -->
+          <details class="experience-item" data-reveal>
+            <summary>
+              <span class="experience-year" data-i18n="uottawaDates">JAN - APR 2026</span>
+              <span class="experience-summary">
+                <span class="org-icon" aria-hidden="true"><img src="images/org-icons/uottawa.png" alt="" loading="lazy"></span>
+                <strong data-i18n="uottawaName">University of Ottawa</strong>
+                <small data-i18n="uottawaRole">Online Learning and Engagement Assistant</small>
+              </span>
+              <span class="experience-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="experience-detail"><div class="experience-detail-content">
+              <ul>
+                <li data-i18n="uottawaBullet1">Created and published Brightspace training modules on accessibility and human rights.</li>
+                <li data-i18n="uottawaBullet2">Developed accessible learning materials and edited training videos in Canva.</li>
+                <li data-i18n="uottawaBullet3">Reviewed learning materials for accuracy, consistency and accessibility.</li>
+                <li data-i18n="uottawaBullet4">Supported awareness events and promoted student resources in a bilingual setting.</li>
+              </ul>
+              <div class="chip-list"><span>Brightspace</span><span>Canva</span><span data-i18n="uottawaTag2">Accessibility</span><span data-i18n="uottawaTag3">Quality assurance</span></div>
+            </div></div>
+          </details>
+
+          <!-- Les Sociales Médias: web development and site maintenance. -->
+          <details class="experience-item" data-reveal>
+            <summary>
+              <span class="experience-year" data-i18n="socialesDates">MAY 2025 - APR 2026</span>
+              <span class="experience-summary">
+                <span class="org-icon" aria-hidden="true"><img src="images/org-icons/sociales.webp" alt="" loading="lazy"></span>
+                <strong>Les Sociales Médias</strong>
+                <small data-i18n="socialesRole">Web Consultant</small>
+              </span>
+              <span class="experience-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="experience-detail"><div class="experience-detail-content">
+              <ul>
+                <li data-i18n="socialesBullet1">Maintained and updated multiple WordPress websites hosted through GoDaddy.</li>
+                <li data-i18n="socialesBullet2">Managed hosting, domain renewals and DNS settings while improving website usability, performance and security.</li>
+                <li data-i18n="socialesBullet3">Built websites from page structure and visual design through configuration and launch.</li>
+              </ul>
+              <div class="chip-list"><span>WordPress</span><span>GoDaddy</span><span>DNS</span><span data-i18n="socialesTag">Web design</span></div>
+            </div></div>
+          </details>
+
+          <!-- Gatineau Hot Air Balloon Festival -->
+          <details class="experience-item" data-reveal>
+            <summary>
+              <span class="experience-year" data-i18n="festivalDates">JAN - APR 2025</span>
+              <span class="experience-summary">
+                <span class="org-icon" aria-hidden="true"><img src="images/org-icons/fmg.png" alt="" loading="lazy"></span>
+                <strong data-i18n="festivalName">Gatineau Hot Air Balloon Festival</strong>
+                <small data-i18n="festivalRole">Digital Development Assistant · Co-op</small>
+              </span>
+              <span class="experience-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="experience-detail"><div class="experience-detail-content">
+              <ul>
+                <li data-i18n="festivalBullet1">Managed and configured the organization’s information system and helped teams resolve technical issues.</li>
+                <li data-i18n="festivalBullet2">Worked with departments and IT specialists to improve digital tools, the website and automated processes, tracking progress in Trello.</li>
+                <li data-i18n="festivalBullet3">Carried out manual tests to check new digital solutions.</li>
+              </ul>
+              <div class="chip-list"><span data-i18n="tagSystems">Digital systems</span><span data-i18n="tagTesting">Testing</span><span>Trello</span><span data-i18n="tagCoordination">Coordination</span></div>
+            </div></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PROJECTS: horizontal carousel with all project details inline. -->
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="shell">
+        <div class="section-heading" data-reveal><span class="section-index">03 /</span><h2 id="projects-title"><span data-i18n="projectsHeading">SELECTED</span> <em data-i18n="projectsAccent">PROJECTS.</em></h2><span class="section-rule" aria-hidden="true"></span></div>
+        <div class="section-subheading" data-reveal><p data-i18n="projectsSubtitle">A few projects that reflect what I enjoy building and exploring.</p></div>
+        <div class="projects-carousel" id="projects-carousel" aria-roledescription="carousel" aria-label="Featured projects" data-i18n-aria-label="carouselAria">
+          <div class="projects-carousel-viewport" id="projects-carousel-viewport" tabindex="0" aria-label="Scroll horizontally to browse projects" data-i18n-aria-label="carouselViewportAria">
+        <div class="projects-grid" id="projects-grid">
+          <article class="project-card" data-category="systems">
+            <div class="project-preview preview-system" aria-hidden="true">
+              <div class="mock-dashboard"><div class="dash-top"><i></i><i></i><i></i></div><div class="dash-content"><span class="dash-sidebar"></span><span class="dash-chart"><i></i><i></i><i></i><i></i><i></i></span></div><div class="dash-boxes"><i></i><i></i><i></i></div></div>
+            </div>
+            <div class="project-details">
+              <p class="project-type" data-i18n="p1Category">SYSTEMS · ARCHITECTURE · DESIGN STAGE</p>
+              <h3 data-i18n="p1Title">Modular Management Information System (SIG)</h3>
+              <p data-i18n="p1Summary">Design and documentation of a modular management platform for multiple organizations. Development has not started yet.</p>
+              <ul class="project-highlights" aria-label="Project highlights" data-i18n-aria-label="projectHighlightsAria">
+                <li data-i18n="p1Point1">Eight planned modules, with defined user roles and access permissions.</li>
+                <li data-i18n="p1Point2">Proposed technology stack: React, NestJS and PostgreSQL.</li>
+                <li data-i18n="p1Point3">Draft REST API specification and Mermaid diagrams.</li>
+              </ul>
+              <div class="project-footer">
+                <div class="chip-list"><span>UML</span><span data-i18n="chipArchitecture">Architecture</span><span>REST API</span><span data-i18n="chipDocumentation">Documentation</span></div>
+                <div class="project-actions">
+                  <a class="project-source-link" href="https://github.com/SjSalma/Projet_SIG" target="_blank" rel="noopener noreferrer" aria-label="GitHub: Modular Management Information System (SIG)" data-i18n-aria-label="gitSigAria">GitHub <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="software">
+            <div class="project-preview preview-booking" aria-hidden="true">
+              <div class="mock-web mock-booking">
+                <div class="mock-web-toolbar"><span></span><span></span><span></span></div>
+                <div class="mock-booking-brand"><span>NAILS</span><em>by</em><span>SALMA</span></div>
+                <div class="mock-booking-content">
+                  <div class="mock-booking-services"><b data-i18n="mockBookingAction">BOOK AN APPOINTMENT</b><i></i><i></i><i></i><span></span></div>
+                  <div class="mock-booking-calendar"><b data-i18n="mockBookingDate">JUNE 2025</b><div class="mock-calendar-grid"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="is-selected"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-details">
+              <p class="project-type" data-i18n="p2Category">WEB · APPOINTMENT BOOKING</p>
+              <h3 data-i18n="p2Title">Nails by Salma</h3>
+              <p data-i18n="p2Summary">A responsive service website with appointment booking, service information and client testimonials.</p>
+              <ul class="project-highlights" aria-label="Project highlights" data-i18n-aria-label="projectHighlightsAria">
+                <li data-i18n="p2Point1">Mobile-friendly pages for services and pricing.</li>
+                <li data-i18n="p2Point2">A dedicated appointment booking form.</li>
+                <li data-i18n="p2Point3">An about page and client testimonials.</li>
+              </ul>
+              <div class="project-footer">
+                <div class="chip-list"><span>React</span><span>JavaScript</span><span>Bootstrap</span></div>
+                <div class="project-actions">
+                  <a class="project-source-link" href="https://github.com/SjSalma/nail-by-SALMA" target="_blank" rel="noopener noreferrer" aria-label="GitHub: Nails by Salma" data-i18n-aria-label="gitNailsAria">GitHub <span aria-hidden="true">↗</span></a>
+                  <a class="round-arrow project-website-link" href="https://sjsalma.github.io/nail-by-SALMA/" target="_blank" rel="noopener noreferrer" aria-label="Open Nails by Salma website" data-i18n-aria-label="p2VisitAria">
+                    <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="software">
+            <div class="project-preview preview-maison" aria-hidden="true">
+              <div class="mock-web mock-maison">
+                <div class="mock-web-toolbar"><span></span><span></span><span></span></div>
+                <div class="mock-maison-header">MAISON SALMA <span>♡ &nbsp; 🛍</span></div>
+                <div class="mock-maison-tagline" data-i18n="mockMaisonTagline">EVERYDAY OBJECTS</div>
+                <div class="mock-maison-products"><div><i></i><span></span></div><div><i></i><span></span></div><div><i></i><span></span></div></div>
+              </div>
+            </div>
+            <div class="project-details">
+              <p class="project-type" data-i18n="p3Category">WEB · ONLINE STORE</p>
+              <h3 data-i18n="p3Title">Maison Salma</h3>
+              <p data-i18n="p3Summary">An online store with a product catalogue, search and filters, favourites and a shopping cart.</p>
+              <ul class="project-highlights" aria-label="Project highlights" data-i18n-aria-label="projectHighlightsAria">
+                <li data-i18n="p3Point1">Product catalogue with search, sorting and filtering.</li>
+                <li data-i18n="p3Point2">Favourites and shopping cart managed with React Context.</li>
+                <li data-i18n="p3Point3">A multi-step demo checkout, with no real payment processing.</li>
+              </ul>
+              <div class="project-footer">
+                <div class="chip-list"><span>React</span><span>JavaScript</span><span>CSS</span></div>
+                <div class="project-actions">
+                  <a class="project-source-link" href="https://github.com/SjSalma/maison-salma" target="_blank" rel="noopener noreferrer" aria-label="GitHub: Maison Salma" data-i18n-aria-label="gitMaisonAria">GitHub <span aria-hidden="true">↗</span></a>
+                  <a class="round-arrow project-website-link" href="https://sjsalma.github.io/maison-salma/" target="_blank" rel="noopener noreferrer" aria-label="Open Maison Salma website" data-i18n-aria-label="p3VisitAria">
+                    <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12Z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="project-card" data-category="design">
+            <div class="project-preview preview-tray" aria-hidden="true">
+              <div class="mock-tray"><div class="tray-surface"></div><div class="tray-post"></div><div class="tray-base"></div></div><span class="tray-drawing"><span data-i18n="mockTrayTop">ENGINEERING</span><br><span data-i18n="mockTrayBottom">DESIGN</span></span>
+            </div>
+            <div class="project-details">
+              <p class="project-type" data-i18n="p4Category">MULTIDISCIPLINARY DESIGN</p>
+              <h3 data-i18n="p4Title">Adjustable Meal Tray</h3>
+              <p data-i18n="p4Summary">A team engineering project exploring the design, technical requirements and testing of an adjustable meal tray.</p>
+              <ul class="project-highlights" aria-label="Project highlights" data-i18n-aria-label="projectHighlightsAria">
+                <li data-i18n="p4Point1">Technical requirements and ease-of-use considerations.</li>
+                <li data-i18n="p4Point2">Prototype testing and design evaluation.</li>
+                <li data-i18n="p4Point3">Collaboration across engineering disciplines.</li>
+              </ul>
+              <div class="project-footer">
+                <div class="chip-list"><span data-i18n="chipTesting">Testing</span><span data-i18n="chipDesign">Design</span><span data-i18n="chipTeamwork">Teamwork</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+          </div>
+          <div class="projects-carousel-controls">
+            <div class="projects-carousel-progress" aria-live="polite" aria-atomic="true">
+              <span id="projects-carousel-current">01</span><span class="projects-carousel-separator">/</span><span>04</span>
+            </div>
+            <div class="projects-carousel-dots" role="group" aria-label="Choose a project" data-i18n-aria-label="carouselChooseAria">
+              <button class="projects-carousel-dot is-current" type="button" data-slide="0" aria-label="Show project 1" data-i18n-aria-label="carouselDot1" aria-current="true"></button>
+              <button class="projects-carousel-dot" type="button" data-slide="1" aria-label="Show project 2" data-i18n-aria-label="carouselDot2"></button>
+              <button class="projects-carousel-dot" type="button" data-slide="2" aria-label="Show project 3" data-i18n-aria-label="carouselDot3"></button>
+              <button class="projects-carousel-dot" type="button" data-slide="3" aria-label="Show project 4" data-i18n-aria-label="carouselDot4"></button>
+            </div>
+            <div class="projects-carousel-arrows">
+              <button class="projects-carousel-arrow" id="projects-carousel-prev" type="button" aria-label="Previous project" data-i18n-aria-label="carouselPrevAria">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14.5 5-7 7 7 7"/></svg>
+              </button>
+              <button class="projects-carousel-arrow" id="projects-carousel-next" type="button" aria-label="Next project" data-i18n-aria-label="carouselNextAria">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9.5 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 SKILLS -->
+    <section class="section skills-section" id="skills" aria-labelledby="skills-title">
+      <div class="shell">
+        <div class="section-heading" data-reveal><span class="section-index">04 /</span><h2 id="skills-title"><span data-i18n="skillsHeading">SKILLS</span><em data-i18n="skillsAccent">.</em></h2><span class="section-rule" aria-hidden="true"></span></div>
+        <p class="skills-intro" data-i18n="skillsIntro" data-reveal>Skills I’ve developed through my studies, work experience and projects.</p>
+        <div class="skills-subsection" aria-labelledby="technical-skills-title">
+          <h3 class="skills-subsection-title" id="technical-skills-title" data-i18n="skillsTechnicalLabel">Technical skills</h3>
+  <div class="skills-grid">
+          <article class="skill-card" data-reveal><span class="skill-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" aria-hidden="true"><path d="m8 17-5-5 5-5"/><path d="m16 7 5 5-5 5"/><path d="m14 4-4 16"/></svg></span><h3 data-i18n="skillProgramming">Programming</h3><div class="chip-list"><span>C++</span><span>Python</span><span>Java</span><span>JavaScript</span><span>SQL</span></div></article>
+          <article class="skill-card" data-reveal><span class="skill-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><h3 data-i18n="skillEngineering">Software Engineering</h3><div class="chip-list"><span>OOP</span><span>DSA</span><span>Git / GitHub</span><span>REST APIs</span><span>UML</span><span>Android</span></div></article>
+          <article class="skill-card" data-reveal><span class="skill-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></svg></span><h3 data-i18n="skillSystems">Systems</h3><div class="chip-list"><span data-i18n="osTag">Operating Systems</span><span data-i18n="archTag">Computer Architecture</span><span>TCP/IP</span></div></article>
+          <article class="skill-card" data-reveal><span class="skill-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="3" width="8" height="7" rx="1.5"/><rect x="14" y="14" width="8" height="7" rx="1.5"/><path d="M10 6.5h4a4 4 0 0 1 4 4V14"/><path d="m15 11 3 3 3-3"/></svg></span><h3 data-i18n="skillAutomation">Automation &amp; Data</h3><div class="chip-list"><span>Power Apps</span><span>Power Automate</span><span>Power BI</span><span data-i18n="requirementsTag">Requirements</span><span data-i18n="testingTag">Testing</span></div></article>
+        </div>
+      </div>
+      <div class="skills-subsection" aria-labelledby="transferable-skills-title" data-reveal>
+        <h3 class="skills-subsection-title" id="transferable-skills-title" data-i18n="skillsTransversalLabel">Transferable skills</h3>
+        <div class="skills-soft-grid">
+          <article class="skill-card skill-card--soft" data-reveal>
+            <span class="skill-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" aria-hidden="true"><path d="M20 11.5a6.5 6.5 0 0 1-6.5 6.5H7l-4 3v-4.5A6.5 6.5 0 0 1 1 11.5v-3A6.5 6.5 0 0 1 7.5 2h6A6.5 6.5 0 0 1 20 8.5z"/><path d="M7 10h8M7 13h5"/></svg></span>
+            <h4 data-i18n="softCommunicationTitle">Communication</h4>
+            <p data-i18n="softCommunicationDesc">Explaining ideas clearly, both in writing and in conversation.</p>
+          </article>
+          <article class="skill-card skill-card--soft" data-reveal>
+            <span class="skill-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <h4 data-i18n="softTeamworkTitle">Teamwork</h4>
+            <p data-i18n="softTeamworkDesc">Working with different teams and sharing responsibilities.</p>
+          </article>
+          <article class="skill-card skill-card--soft" data-reveal>
+            <span class="skill-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18m-12 6 2 2 4-4"/></svg></span>
+            <h4 data-i18n="softOrganizationTitle">Organization</h4>
+            <p data-i18n="softOrganizationDesc">Setting priorities, planning ahead and meeting deadlines.</p>
+          </article>
+          <article class="skill-card skill-card--soft" data-reveal>
+            <span class="skill-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" aria-hidden="true"><path d="M9 18h6M10 22h4M9 14a6 6 0 1 1 6 0c-1.4 1.1-2 2-2 4h-2c0-2-0.6-2.9-2-4Z"/></svg></span>
+            <h4 data-i18n="softProblemTitle">Problem-solving</h4>
+            <p data-i18n="softProblemDesc">Understanding a challenge, adapting my approach and finding practical solutions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 BEYOND CODE - engagement, people & experiences outside engineering -->
+    <section class="section volunteer-section" id="volunteering" aria-labelledby="volunteer-title">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <span class="section-index">05 /</span>
+          <h2 id="volunteer-title"><span data-i18n="volunteerHeading">BEYOND</span> <em data-i18n="volunteerAccent">CODE.</em></h2>
+          <span class="section-rule" aria-hidden="true"></span>
         </div>
 
-        <div class="presentation">
-            <h2 class="titre-presentation">PRÉSENTATION</h2>
-
-            <div class="row" id="presentation-columns">
-                <div class="a-propos-de-moi">
-                    <h3>À propos de moi</h3>
-                    <p>
-                        Je m'appelle Salma, étudiante en informatique à l’Université d’Ottawa.<br>
-                        Je suis passionnée par la technologie, le design numérique et la manière dont les interfaces influencent nos interactions.<br>
-                        J'aime créer des expériences visuelles et fonctionnelles en m’appuyant sur mon intuition et mon sens du détail.
-                    </p>
-                </div>
-
-                <div class="comment-je-travaille">
-                    <h3>Comment je travaille</h3>
-                    <p>
-                        J’ai déjà conceptualisé deux sites web dans le cadre de projets de cours.<br>
-                        Je commence par des recherches esthétiques pour m’inspirer visuellement.<br>
-                        Ensuite, je code en m’appuyant sur mes idées et parfois une maquette. J’avance étape par étape, et si je bloque, je laisse reposer pour y revenir avec un œil neuf.
-                    </p>
-                </div>
+        <!-- AMUO : photo réelle fournie, disposition actuelle conservée -->
+        <article class="volunteer-grid volunteer-feature" data-reveal>
+          <div class="volunteer-art volunteer-photo volunteer-feature-photo">
+            <img src="images/amuo-team.webp"
+                 alt="Team of the Moroccan Association at the University of Ottawa"
+                 data-i18n-alt="amuoPhotoAlt" loading="lazy">
+          </div>
+          <div class="volunteer-copy volunteer-feature-copy">
+            <span class="eyebrow" data-i18n="volunteerDate">2026 - PRESENT</span>
+            <div class="volunteer-identity">
+              <span class="org-icon" aria-hidden="true"><img src="images/org-icons/amuo.png" alt="" loading="lazy"></span>
+              <h3 data-i18n="volunteerRole">Media Director · Moroccan Association at the University of Ottawa</h3>
             </div>
+            <p data-i18n="volunteerDescription">I create visual content, promote events and work with the AMUO team on initiatives that bring students together.</p>
+            <a class="inline-link" href="https://www.instagram.com/uottawama/" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="discoverAmuo">EXPLORE AMUO</span><span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- FMG : job d'été NON technique ; distinct du stage CO-OP listé dans Experience -->
+        <article class="volunteer-grid volunteer-feature volunteer-feature--reverse" data-reveal>
+          <div class="volunteer-art volunteer-photo volunteer-feature-photo">
+            <img src="images/fmg-summer.webp" alt="Festival de montgolfières de Gatineau - espace réservé à une photo" data-i18n-alt="fmgPhotoAlt" loading="lazy">
+          </div>
+          <div class="volunteer-copy volunteer-feature-copy">
+            <span class="eyebrow" data-i18n="fmgSummerDate">JUN - AUG 2025</span>
+            <div class="volunteer-identity">
+              <span class="org-icon" aria-hidden="true"><img src="images/org-icons/fmg.png" alt="" loading="lazy"></span>
+              <h3 data-i18n="fmgSummerTitle">Visitor Services &amp; Ticketing Agent · Gatineau Hot Air Balloon Festival</h3>
+            </div>
+            <p data-i18n="fmgSummerDescription">Welcomed visitors, handled tickets and questions, assisted VIP guests and helped coordinate volunteers during the festival.</p>
+          </div>
+        </article>
+
+        <!-- MAMUN : simulation diplomatique, et non poste de bénévolat -->
+        <article class="volunteer-grid volunteer-feature" data-reveal>
+          <div class="volunteer-art volunteer-photo volunteer-feature-photo">
+            <img src="images/mamun.webp" alt="MAMUN Model United Nations - espace réservé à une photo" data-i18n-alt="mamunPhotoAlt" loading="lazy">
+          </div>
+          <div class="volunteer-copy volunteer-feature-copy">
+            <span class="eyebrow" data-i18n="mamunDate">MAY 2023</span>
+            <div class="volunteer-identity">
+              <span class="org-icon" aria-hidden="true"><img src="images/org-icons/mamun.jpeg" alt="" loading="lazy"></span>
+              <h3 data-i18n="mamunTitle">MAMUN · Moroccan Model United Nations</h3>
+            </div>
+            <p data-i18n="mamunDescription">Represented the United States at a Model United Nations simulation, taking part in public speaking, diplomatic discussions and negotiations.</p>
+          </div>
+        </article>
+
+        <!-- Engagement associatif : deux cartes compactes avec emplacements de photos -->
+        <div class="volunteer-community" data-reveal>
+          <h3 class="volunteer-community-heading" data-i18n="volunteerPastHeading">COMMUNITY VOLUNTEERING</h3>
+          <div class="volunteer-community-grid">
+            <article class="volunteer-community-card">
+              <div class="volunteer-community-image">
+                <img src="images/bayti.webp" alt="Association Bayti - espace réservé à une photo" data-i18n-alt="baytiPhotoAlt" loading="lazy">
+              </div>
+              <div class="volunteer-community-card-body">
+                <span class="volunteer-card-period">2022 - 2023</span>
+                <h4><span class="org-icon" aria-hidden="true"><img src="images/org-icons/bayti.webp" alt="" loading="lazy"></span><span>Association Bayti</span></h4>
+                <p data-i18n="baytiDescription">Helped organize charity events and fundraisers, and took part in activities supporting children in Casablanca.</p>
+                <p class="volunteer-card-impact" data-i18n="baytiImpact">Contributed to a Ramadan 2023 charity gala that raised more than 24,000 MAD.</p>
+              </div>
+            </article>
+            <article class="volunteer-community-card">
+              <div class="volunteer-community-image">
+                <img src="images/leo-club.webp" alt="Léo Club - espace réservé à une photo" data-i18n-alt="leoPhotoAlt" loading="lazy">
+              </div>
+              <div class="volunteer-community-card-body">
+                <span class="volunteer-card-period">2020 - 2022</span>
+                <h4><span class="org-icon" aria-hidden="true"><img src="images/org-icons/leo.jpeg" alt="" loading="lazy"></span><span>Léo Club</span></h4>
+                <p data-i18n="leoDescription">Took part in volunteer activities and community events in Casablanca, including two city clean-ups.</p>
+              </div>
+            </article>
+          </div>
         </div>
+      </div>
+    </section>
+  </main>
 
-        <div class="steps-div">
-            <div class="steps-div-left">
-                <img src="images/devoir1.png"/>
-                <div class="gather-description-div">
-                    <h2 class="h1-in-steps">Devoir 1</h2>
-                    <p class="h2-in-steps">
-                    Un site de services.
-                    </p>
-                    <div class="fleche">
-                        <a href="https://sjsalma.github.io/nail-by-SALMA/" class="fleche-lien">
-                            <img src="images/fleche.png" alt="go to" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="steps-div-right">
-                <div class="gather-description-div">
-                    <h2 class="h1-in-steps">Devoir 2</h2>
-                    <p class="h2-in-steps">
-                    Un petit jeu.
-                    </p>
-                    <div class="fleche">
-                        <a href="https://sjsalma.github.io/memory-game/" class="fleche-lien">
-                            <img src="images/fleche.png" alt="go to" />
-                        </a>
-                    </div>
-                </div>
-                <img src="images/devoir2.png"/>
-            </div>
-            <div class="steps-div-left">
-                <img src="images/devoir3.png"/>
-                <div class="gather-description-div">
-                    <h2 class="h1-in-steps">Devoir 3</h2>
-                    <p class="h2-in-steps">
-                    Un site e-commerce.
-                    </p>
-                    <div class="fleche">
-                        <a href="https://sjsalma.github.io/maison-salma/" class="fleche-lien">
-                            <img src="images/fleche.png" alt="go to" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="steps-div-right">
-                <div class="gather-description-div">
-                    <h2 class="h1-in-steps">Devoir 4</h2>
-                    <p class="h2-in-steps">
-                    Un site d'analyse et visualisation.
-                    </p>
-                    <div class="fleche">
-                        <a href="https://sjsalma.github.io/tableau-de-bord/" class="fleche-lien">
-                            <img src="images/fleche.png" alt="go to" />
-                        </a>
-                    </div>
-                </div>
-                <img src="images/devoir4.png"/>
-            </div>
-        </div>
-
-        <div class="footer-div">
-            <img src="images/footer.png" alt="prenom_nom" class="food-frame-logo">
-            <ul class="footer-content">
-                <li>
-                    <a href="index.html" class="nav-link" data-text="Home">Home</a>
-                </li>
-                <li>
-                    <a href="https://sjsalma.github.io/nail-by-SALMA/" class="nav-link" data-text="devoir 1">Devoir 1</a>
-                </li>
-                <li>
-                    <a href="https://sjsalma.github.io/memory-game/" class="nav-link" data-text="devoir 2">Devoir 2</a>
-                </li>
-                <li>
-                    <a href="https://sjsalma.github.io/maison-salma/" class="nav-link" data-text="devoir 3">Devoir 3</a>
-                </li>
-                <li>
-                    <a href="https://sjsalma.github.io/tableau-de-bord/" class="nav-link" data-text="devoir 4">Devoir 4</a>
-                </li>
-            </ul>
-            <hr width="100%">    
-            <div class="column">
-                <div class="credit">
-                    <p>© 2025 Salma Sajid. All rights reserved</p>
-                </div>   
-            </div>
-        </div>
-
-        <script type="text/javascript" src="javascript/navbar.js"></script>
-        <script type="text/javascript" src="javascript/home-presentation.js"></script>
-        <script type="text/javascript" src="javascript/home-intro.js"></script>
-        <script type="text/javascript" src="javascript/home-designs.js"></script>
-        <script type="text/javascript" src="javascript/footer.js"></script>
-        <script type="text/javascript" src="javascript/scroll-reset.js"></script>
-    </body>
-</html> 
-
-
-
-
-
-
-
-
+  <footer class="site-footer"><div class="shell footer-inner"><span>© <span id="current-year">2026</span> SALMA SAJID</span><span data-i18n="footerMessage">THOUGHTFULLY DESIGNED. BUILT WITH CODE.</span><a href="#home"><span data-i18n="backTop">BACK TO TOP</span> ↑</a></div></footer>
+</body>
+</html>

@@ -1,23 +1,25 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const bgLayer = document.createElement("div");
-  bgLayer.style.position = "fixed";
-  bgLayer.style.top = "0";
-  bgLayer.style.left = "0";
-  bgLayer.style.width = "100vw";
-  bgLayer.style.height = "100vh";
-  bgLayer.style.backgroundColor = "whitesmoke";
-  bgLayer.style.zIndex = "-1";
-  document.body.appendChild(bgLayer);
+/* Portfolio Velvet Cherry — scripts organisés par composant, comme ton premier portfolio. */
+'use strict';
 
-  const intro = document.querySelector(".intro");
-  if (!intro) return;
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  window.addEventListener("scroll", function () {
-    const scrollY = window.scrollY;
-    const fadeStart = 0;
-    const fadeEnd = 400;
-
-    const opacity = Math.max(1 - (scrollY - fadeStart) / (fadeEnd - fadeStart), 0);
-    intro.style.opacity = opacity;
-  });
-});
+// Scroll progress + lightweight portrait movement, updated in one frame.
+let scrollTicking = false;
+function updateScrollEffects() {
+  const scrollTop = window.scrollY || root.scrollTop || 0;
+  const scrollRange = Math.max(1, root.scrollHeight - window.innerHeight);
+  progress.style.width = `${Math.min(100,Math.max(0,(scrollTop / scrollRange) * 100))}%`;
+  header.classList.toggle('is-scrolled', scrollTop > 0);
+  if (!reduceMotion.matches && window.innerWidth > 700) {
+    const drift = Math.max(-60,Math.min(110,scrollTop * .12));
+    document.getElementById('hero-media-drift').style.setProperty('--portrait-shift', `${drift}px`);
+  }
+  scrollTicking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(updateScrollEffects);
+    scrollTicking = true;
+  }
+}, { passive: true });
+window.addEventListener('resize', updateScrollEffects, { passive: true });

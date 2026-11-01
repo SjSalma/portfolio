@@ -1,0 +1,118 @@
+/* SALMA SAJID — animations.css | Style isolé par composant */
+
+/* ANIMATIONS: only hidden when JS has explicitly enabled motion. */
+html.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0,44px,0);
+  transition: opacity .8s ease,transform .8s var(--ease-out);
+}
+
+html.motion-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+html.motion-ready .projects-grid [data-reveal]:nth-child(2),html.motion-ready .skills-grid [data-reveal]:nth-child(2) {
+  transition-delay: .08s;
+}
+
+html.motion-ready .projects-grid [data-reveal]:nth-child(3),html.motion-ready .skills-grid [data-reveal]:nth-child(3) {
+  transition-delay: .16s;
+}
+
+html.motion-ready .skills-grid [data-reveal]:nth-child(4) {
+  transition-delay: .24s;
+}
+
+.hero-entrance {
+  animation: copy-rise 1.05s var(--ease-out) both;
+}
+
+.delay-1 {
+  animation-delay: .13s;
+}
+
+.delay-2 {
+  animation-delay: .27s;
+}
+
+.delay-3 {
+  animation-delay: .42s;
+}
+
+.delay-4 {
+  animation-delay: .68s;
+}
+
+.delay-5 {
+  animation-delay: .92s;
+}
+
+@keyframes copy-rise {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes portrait-rise {
+  from {
+    opacity: 0;
+    transform: translateY(175px) scale(1.045);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+@keyframes sparkle-pulse {
+  50% {
+    opacity: .35;
+    transform: scale(.75) rotate(30deg);
+  }
+
+}
+
+@keyframes arrow-bounce {
+  50% {
+    transform: translateY(9px);
+  }
+
+}
+
+/* Les couleurs des sections restent fixes. Seul leur contenu se déplace. */
+html.motion-ready main > section:not(#home) [data-reveal] {
+  transition: opacity .58s ease-out, transform .58s ease-out;
+  transition-delay: 0s;
+}
+
+html.motion-ready main > section:not(#home) [data-reveal].is-visible {
+  transition: opacity .68s ease-out, transform .68s var(--ease-out);
+}
+
+/* Glissement piloté pixel par pixel par le scroll : pas de fondu lors de
+   la remontée, ni de transition chronométrée qui continue après l'arrêt. */
+html.motion-ready main > section:not(#home) [data-reveal].is-visible.is-scroll-sliding {
+  opacity: 1;
+  transform: translate3d(0, var(--reveal-slide-y, 0px), 0);
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.motion-ready [data-reveal],
+  html.motion-ready [data-reveal].is-visible,
+  html.motion-ready [data-reveal].is-scroll-sliding {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

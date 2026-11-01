@@ -1,0 +1,691 @@
+/* =========================================================
+   HERO DYNAMIQUE — PHOTO, HALO ET INDICATEUR DÉFILER
+   Ce fichier est chargé APRES color-safe.css.
+   Compatible dark, light et vision safe.
+   ========================================================= */
+
+/* Les anciens soleils fixes étaient dessinés sur la section.
+   On retire uniquement ces deux halos pour ne garder que la
+   lumière liée au portrait. Le fond Velvet Cherry reste intact. */
+.hero::after,
+.hero .hero-media::before {
+  content: none !important;
+}
+
+/* La photo et ses lumières vivent ensemble dans le même bloc.
+   Le JS déplace déjà #hero-media-drift au défilement :
+   il déplace désormais le bloc entier, et pas seulement l'image. */
+.hero .portrait-stage {
+  position: absolute;
+  left: -12%;
+  bottom: 0;
+  width: clamp(650px, 70vw, 1080px);
+  aspect-ratio: 1948 / 1461;
+  overflow: visible;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.hero .portrait-stage .hero-portrait {
+  position: relative;
+  display: block;
+  z-index: 3;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  translate: none;
+  /* L'animation portrait-rise originale est conservée. */
+}
+
+/* Source lumineuse chaude : ancrée à la droite du portrait,
+   et non au coin supérieur droit de la fenêtre. */
+.hero .portrait-stage::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 105%;
+  height: 98%;
+  right: -36%;
+  top: -16%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 55% 38%,
+    rgba(255, 250, 238, .92) 0%,
+    rgba(255, 230, 204, .75) 17%,
+    rgba(249, 179, 145, .41) 37%,
+    rgba(235, 119, 108, .14) 57%,
+    transparent 76%
+  );
+  filter: blur(25px);
+  opacity: .82;
+}
+
+/* Petit halo de rebond, également fixé au portrait. */
+.hero .portrait-stage .portrait-glow {
+  position: absolute;
+  z-index: 1;
+  left: 35%;
+  right: auto;
+  top: 7%;
+  bottom: auto;
+  width: 78%;
+  height: 72%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse,
+    rgba(255, 241, 226, .36),
+    rgba(222, 119, 104, .16) 40%,
+    transparent 72%
+  );
+  filter: blur(22px);
+  opacity: 1;
+}
+
+/* Le cercle fin grandit et se déplace avec le portrait. */
+.hero .portrait-stage .portrait-ring {
+  position: absolute;
+  z-index: 2;
+  left: 20%;
+  right: auto;
+  top: 10%;
+  bottom: auto;
+  width: 70%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(243, 203, 179, .24);
+}
+
+/* Petite tablette : reproduit les proportions du portrait préexistant. */
+@media (min-width: 801px) and (max-width: 1250px) {
+  .hero .portrait-stage {
+    width: 85vw;
+    left: -20%;
+  }
+}
+
+/* Sur tablette/mobile, le portrait était centré dans son bloc.
+   On centre désormais le stage complet, sans déplacer l'image seule. */
+@media (max-width: 800px) {
+  .hero .portrait-stage {
+    width: min(160vw, 42rem);
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 580px) {
+  .hero .portrait-stage {
+    width: min(145vw, 720px);
+  }
+}
+
+@media (max-width: 390px) {
+  .hero .portrait-stage {
+    width: 164vw;
+  }
+}
+
+/* Le mode clair suit le MEME positionnement : seule
+   l'intensité change. */
+body[data-theme="light"]:not([data-vision="safe"])
+.hero .portrait-stage::before {
+  opacity: .63;
+  filter: blur(30px);
+}
+
+/* Dans le mode accessible, lumière moins éblouissante,
+   mais toujours attachée à la silhouette. */
+body[data-vision="safe"] .hero .portrait-stage::before {
+  background: radial-gradient(ellipse at 55% 38%,
+    rgba(255, 233, 176, .58) 0%,
+    rgba(236, 196, 119, .27) 32%,
+    transparent 72%
+  );
+  opacity: .8;
+}
+body[data-vision="safe"] .hero .portrait-stage .portrait-glow {
+  background: radial-gradient(ellipse,
+    rgba(255, 228, 172, .22),
+    transparent 70%
+  );
+}
+
+/* =========================================================
+   SCROLL INDICATOR — ALIGNÉ SUR LE SHELL
+   ========================================================= */
+
+/* Il se trouve désormais dans .hero-layout (la même grille
+   que le titre et les coordonnées) : left:0 donne LEUR axe. */
+body .hero .hero-layout > .scroll-prompt {
+  position: absolute;
+  left: 0;
+  right: auto;
+  bottom: clamp(5.9rem, 12svh, 7.5rem);
+  z-index: 12;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 42px;
+  margin: 0;
+  padding: 5px 5px 5px 15px;
+  font-family: var(--sans);
+  font-size: clamp(.72rem, .7rem + .13vw, .85rem);
+  font-weight: 700;
+  letter-spacing: .075em;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  background: #FFF1E9;
+  color: #3F1116;
+  border: 1px solid #D3AA9D;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(20,5,9,.17);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+body .hero .hero-layout > .scroll-prompt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(20,5,9,.23);
+}
+
+body .hero .hero-layout > .scroll-prompt .scroll-arrow {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  color: #FFF1E9;
+  background: #561C24;
+  border-radius: 50%;
+  animation: none;
+}
+body .hero .hero-layout > .scroll-prompt .scroll-arrow svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  animation: hero-arrow-float 2s ease-in-out infinite;
+}
+@keyframes hero-arrow-float {
+  0%,100% { transform: translateY(-2px); }
+  50% { transform: translateY(2px); }
+}
+
+body[data-theme="light"]:not([data-vision="safe"])
+.hero .hero-layout > .scroll-prompt {
+  background: #561C24;
+  color: #FFF1E9;
+  border-color: #915E66;
+}
+body[data-theme="light"]:not([data-vision="safe"])
+.hero .hero-layout > .scroll-prompt .scroll-arrow {
+  background: #FFE6DC;
+  color: #561C24;
+}
+body[data-theme="dark"][data-vision="safe"]
+.hero .hero-layout > .scroll-prompt {
+  background: #10263C;
+  color: #F3F8FC;
+  border-color: #F5C96A;
+}
+body[data-theme="dark"][data-vision="safe"]
+.hero .hero-layout > .scroll-prompt .scroll-arrow {
+  background: #F5C96A;
+  color: #102638;
+}
+body[data-theme="light"][data-vision="safe"]
+.hero .hero-layout > .scroll-prompt {
+  background: #FFFFFF;
+  color: #122C43;
+  border-color: #154D7A;
+}
+body[data-theme="light"][data-vision="safe"]
+.hero .hero-layout > .scroll-prompt .scroll-arrow {
+  background: #154D7A;
+  color: #FFFFFF;
+}
+
+/* Sur mobile, le bouton suit l'ordre naturel : sous la photo,
+   avant les liens, sans coordonnées absolues fragiles. */
+@media (max-width: 800px) {
+  body .hero .hero-layout > .scroll-prompt {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    align-self: flex-start;
+    margin: .5rem 0 0;
+    max-width: 100%;
+  }
+}
+
+body .hero .hero-layout > .scroll-prompt:focus-visible {
+  outline: 3px solid #F5C96A;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .hero .hero-layout > .scroll-prompt,
+  body .hero .hero-layout > .scroll-prompt .scroll-arrow svg {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ENTRÉE : la photo, les halos et le cercle montent ENSEMBLE. */
+@keyframes portrait-stage-rise {
+  from { opacity: 0; translate: 0 175px; scale: 1.045; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
+}
+.hero .portrait-stage {
+  animation: portrait-stage-rise 1.65s cubic-bezier(.16,1,.3,1) both;
+  transform-origin: 50% 100%;
+}
+.hero .portrait-stage .hero-portrait { animation: none; }
+
+/* Les anciens grands cercles étaient attachés à la section.
+   Ils sont remplacés par deux cercles liés au portrait. */
+.hero > .hero-orbit { display: none; }
+.hero .portrait-stage .portrait-ring::before {
+  content: "";
+  position: absolute;
+  width: 140%;
+  aspect-ratio: 1;
+  left: -22%;
+  top: -23%;
+  border-radius: 50%;
+  border: 1px solid rgba(243, 203, 179, .17);
+  pointer-events: none;
+}
+body[data-theme="light"] .hero .portrait-stage .portrait-ring,
+body[data-theme="light"] .hero .portrait-stage .portrait-ring::before {
+  border-color: rgba(120, 55, 67, .24);
+}
+body[data-vision="safe"] .hero .portrait-stage .portrait-ring,
+body[data-vision="safe"] .hero .portrait-stage .portrait-ring::before {
+  border-color: rgba(188, 173, 129, .27);
+}
+
+/* Sur mobile, placer l'indicateur après le texte et avant
+   le portrait pour qu'il reste visible sans recouvrir la photo. */
+@media (max-width: 800px) {
+  .hero .hero-layout > .hero-content { order: 0; }
+  .hero .hero-layout > .scroll-prompt { order: 1; }
+  .hero .hero-layout > .hero-media { order: 2; }
+  .hero .hero-layout > .hero-bottom { order: 3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .portrait-stage { animation: none; }
+}
+
+
+/* ================================================================
+   HERO COMPACT — portrait en arrière-plan, une seule hauteur d'écran
+   Répond au zoom navigateur, aux tablettes et aux petites fenêtres.
+   Toutes les lumières restent dans .portrait-stage.
+   ================================================================ */
+
+@media (max-width: 1050px), (max-height: 690px) {
+  .hero {
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    display: block;
+    overflow: hidden;
+  }
+
+  .hero .hero-layout {
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+  }
+
+  .hero .hero-media {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero .hero-media-drift { position: absolute; inset: 0; }
+
+  /* Le vrai visage est au centre de la partie non transparente
+     du fichier : on ancre cette partie au bord droit du viewport. */
+  .hero .portrait-stage {
+    --portrait-size: min(205vw, 118svh);
+    position: absolute;
+    width: var(--portrait-size);
+    min-width: 0;
+    max-width: none;
+    left: calc(82% - (var(--portrait-size) * .52));
+    right: auto;
+    bottom: 0;
+    transform: none;
+    margin: 0;
+    aspect-ratio: 1948 / 1461;
+  }
+
+  .hero .portrait-stage .hero-portrait {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    translate: none;
+  }
+
+  .hero .hero-layout::before {
+    content: "";
+    position: absolute;
+    /* La couche de contraste couvre TOUTE la fenêtre,
+       pas seulement le conteneur .shell. */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg,
+      rgba(31, 7, 13, .8) 0%,
+      rgba(41, 10, 16, .64) 42%,
+      rgba(41, 10, 16, .10) 78%,
+      transparent 100%);
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  body[data-theme="light"]:not([data-vision="safe"])
+  .hero .hero-layout::before {
+    background: linear-gradient(90deg,
+      rgba(255, 240, 228, .93) 0%,
+      rgba(255, 240, 228, .82) 42%,
+      rgba(255, 240, 228, .08) 85%,
+      transparent 100%);
+  }
+
+  body[data-theme="dark"][data-vision="safe"]
+  .hero .hero-layout::before {
+    background: linear-gradient(90deg,
+      rgba(8, 26, 42, .92) 0%,
+      rgba(8, 26, 42, .80) 40%,
+      rgba(8, 26, 42, .05) 82%,
+      transparent 100%);
+  }
+
+  body[data-theme="light"][data-vision="safe"]
+  .hero .hero-layout::before {
+    background: linear-gradient(90deg,
+      rgba(246, 249, 252, .94) 0%,
+      rgba(246, 249, 252, .82) 40%,
+      rgba(246, 249, 252, .04) 85%,
+      transparent 100%);
+  }
+
+  .hero .hero-layout > .hero-content {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 5;
+    /* Un peu plus d'air sous la navbar sans perdre la hauteur d'écran. */
+    top: calc(var(--header-height) + clamp(2.25rem, 5svh, 3.5rem));
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero .hero-eyebrow {
+    margin: 0 0 clamp(.35rem, 1svh, .7rem);
+    font-size: clamp(.66rem, 1.3svh, .9rem);
+  }
+
+  .hero .hero-title {
+    font-size: clamp(3.15rem, min(14vw, 14svh), 8rem);
+    line-height: .78;
+    margin: 0;
+  }
+  .hero .hero-title-last {
+    margin-top: .085em;
+    margin-left: min(4vw, 1.7rem);
+  }
+
+  .hero .hero-caption {
+    margin-top: clamp(.55rem, 1.5svh, 1rem);
+    width: min(26rem, 52vw);
+    max-width: 100%;
+  }
+  .hero .hero-role {
+    font-size: clamp(.95rem, min(2.2vw, 2.55svh), 1.5rem);
+    line-height: 1.15;
+  }
+  .hero .hero-description {
+    margin-top: clamp(.3rem, 1svh, .6rem);
+    font-size: clamp(.77rem, 1.55svh, .97rem);
+    line-height: 1.42;
+    max-width: 22rem;
+  }
+
+  body .hero .hero-layout > .scroll-prompt {
+    position: absolute;
+    top: auto;
+    bottom: clamp(5.7rem, 13svh, 7.7rem);
+    left: 0;
+    right: auto;
+    order: initial;
+    align-self: auto;
+    margin: 0;
+    min-height: 38px;
+    padding: 4px 4px 4px 12px;
+    gap: .6rem;
+    font-size: .7rem;
+  }
+  body .hero .hero-layout > .scroll-prompt .scroll-arrow {
+    width: 29px;
+    height: 29px;
+    flex-basis: 29px;
+  }
+
+  .hero .hero-layout > .hero-bottom {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: clamp(.65rem, 2svh, 1.25rem);
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem 1rem;
+    font-size: clamp(.65rem, 1.3svh, .8rem);
+  }
+  .hero .hero-bottom > a:last-of-type { display: inline-flex; }
+  
+}
+
+/* Portrait devant le fond mais derrière le titre sur smartphones. */
+@media (max-width: 580px) {
+  .hero .hero-title {
+    font-size: clamp(2.9rem, min(19vw, 11.5svh), 5.5rem);
+  }
+  .hero .hero-caption {
+    width: min(19rem, 80vw);
+  }
+  .hero .hero-role {
+    font-size: clamp(.88rem, min(4vw, 2.6svh), 1.18rem);
+  }
+  .hero .hero-description {
+    font-size: clamp(.76rem, 1.6svh, .94rem);
+  }
+  .hero .portrait-stage {
+    --portrait-size: min(215vw, 123svh);
+    bottom: 0;
+  }
+  .hero .hero-layout::before {
+    background: linear-gradient(90deg,
+      rgba(31,7,13,.88) 0%,
+      rgba(31,7,13,.65) 54%,
+      rgba(31,7,13,.06) 100%);
+  }
+  body .hero .hero-layout > .scroll-prompt {
+    bottom: clamp(6rem, 15svh, 8.25rem);
+    font-size: .64rem;
+  }
+}
+
+/* Petite hauteur : compacter aussi les espaces verticaux. */
+@media (max-height: 660px) {
+  .hero .hero-layout > .hero-content {
+    top: calc(var(--header-height) + .5rem);
+  }
+  .hero .hero-title {
+    font-size: clamp(2.6rem, min(12vw, 13svh), 7rem);
+  }
+  .hero .hero-caption { margin-top: .35rem; }
+  .hero .hero-description { line-height: 1.3; }
+  body .hero .hero-layout > .scroll-prompt {
+    bottom: clamp(5rem, 12svh, 6.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .portrait-stage { animation: none; }
+}
+
+/* ==========================================
+   HERO — DESCRIPTION PLUS LARGE
+   ========================================== */
+
+/* Grands écrans */
+@media (min-width: 1051px) {
+  .hero .hero-caption {
+    width: min(540px, 45vw);
+    max-width: none;
+  }
+
+  .hero .hero-description {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Tablettes et fenêtres intermédiaires */
+@media (min-width: 581px) and (max-width: 1050px) {
+  .hero .hero-caption {
+    width: min(580px, 62vw);
+    max-width: none;
+  }
+
+  .hero .hero-description {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+
+/* HERO — ÉVITER QUE LE TEXTE EMPIÈTE SUR LE PORTRAIT */
+
+@media (min-width: 581px) {
+
+  /* Français et anglais uniquement */
+  html:not([lang="ar"]) .hero .hero-caption {
+    width: min(610px, 46vw);
+    max-width: 100%;
+  }
+
+  html:not([lang="ar"]) .hero .hero-role {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    font-size: clamp(1.05rem, 1.6vw, 1.45rem);
+    line-height: 1.25;
+  }
+
+  html:not([lang="ar"]) .hero .hero-description {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* MODE CLAIR — VOILE PLUS DISCRET SUR LE PORTRAIT */
+
+@media (max-width: 1050px), (max-height: 690px) {
+
+  body[data-theme="light"]:not([data-vision="safe"])
+  .hero .hero-layout::before {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 240, 228, .93) 0%,
+      rgba(255, 240, 228, .83) 28%,
+      rgba(255, 240, 228, .55) 40%,
+      rgba(255, 240, 228, .12) 52%,
+      transparent 62%
+    );
+  }
+}
+
+/* TÉLÉPHONES — CONSERVER LA LISIBILITÉ DU TEXTE */
+
+@media (max-width: 580px) {
+
+  body[data-theme="light"]:not([data-vision="safe"])
+  .hero .hero-layout::before {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 240, 228, .90) 0%,
+      rgba(255, 240, 228, .75) 40%,
+      rgba(255, 240, 228, .25) 65%,
+      transparent 85%
+    );
+  }
+}
+
+
+/* ================================================================
+   HERO COMPACT — CENTRAGE VERTICAL UNIFIÉ
+   Même comportement avec le zoom, y compris lorsque la hauteur
+   CSS passe sous 720px. Le bouton de défilement garde sa position.
+   ================================================================ */
+@media (max-width: 1050px), (max-height: 690px) {
+  .hero .hero-layout > .hero-content {
+    position: absolute;
+    top: 50%;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: block;
+    transform: translateY(-50%);
+  }
+}
+
+/* Sur les vues très basses, le contenu doit rester visible
+   sous la navbar plutôt que de chevaucher les coordonnées. */
+@media (max-height: 520px) {
+  .hero .hero-layout > .hero-content {
+    top: calc(var(--header-height) + .5rem);
+    bottom: auto;
+    transform: none;
+  }
+}

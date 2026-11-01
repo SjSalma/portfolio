@@ -1,0 +1,919 @@
+/* Arabic translation — readable RTL typography without moving the portfolio photos.
+   Applied only for html[lang="ar"]; French/English retain the existing layout. */
+
+html[lang="ar"] body {
+  /* Keep the existing card, photo, header and carousel order LTR. */
+  direction: ltr;
+  font-family: "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+}
+
+/* Arabic words read from right to left, even inside LTR page-layout components. */
+html[lang="ar"] [data-i18n],
+html[lang="ar"] [data-i18n-aria-label] {
+  direction: rtl;
+}
+
+html[lang="ar"] :is(
+  .section-heading h2,
+  .about-intro, .about-facts,
+  .experience-summary strong, .experience-summary small,
+  .experience-detail-content, .experience-phase,
+  .project-details, .project-highlights,
+  .skill-card, .volunteer-copy, .volunteer-community-card-body,
+  .section-subheading p, .skills-intro
+) {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Deliberately retain SS. and the portrait exactly where the user placed them. */
+html[lang="ar"] .brand, html[lang="ar"] .brand-mark,
+html[lang="ar"] .hero-title,
+html[lang="ar"] .hero-media,
+html[lang="ar"] .hero-bottom,
+html[lang="ar"] .projects-carousel-viewport,
+html[lang="ar"] .projects-carousel .projects-grid {
+  direction: ltr;
+}
+
+html[lang="ar"] .hero .hero-eyebrow,
+html[lang="ar"] .hero .hero-caption {
+  direction: rtl;
+  text-align: right;
+}
+/* Eyebrow belongs to the left text column, not the full hero width. */
+html[lang="ar"] .hero .hero-eyebrow {
+  width: min(540px, 45vw);
+  max-width: 100%;
+}
+html[lang="ar"] .hero .hero-role {
+  white-space: normal;
+  width: auto;
+  max-width: min(680px, 68vw);
+  font-family: "Noto Naskh Arabic", "Noto Sans Arabic", Tahoma, serif;
+  font-size: clamp(1.18rem, 1.7vw, 1.8rem);
+  line-height: 1.42;
+}
+html[lang="ar"] .hero .hero-description {
+  line-height: 1.8;
+}
+html[lang="ar"] .hero .hero-title { text-align: left; }
+html[lang="ar"] .hero .hero-bottom [data-i18n="heroLocation"] {
+  display: inline-block;
+  direction: rtl;
+}
+html[lang="ar"] .hero .scroll-prompt { letter-spacing: normal; }
+
+/* Arabic headings are more legible without Latin tracking and a tight line-height. */
+html[lang="ar"] .section-heading h2 {
+  font-family: "Noto Naskh Arabic", "Noto Sans Arabic", Tahoma, serif;
+  font-size: clamp(2.55rem, 5.15vw, 5.25rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+  overflow-wrap: normal;
+}
+html[lang="ar"] :is(
+  .about-intro .lead,
+  .project-details h3,
+  .volunteer-copy h3,
+  .volunteer-community-card h4,
+  .experience-summary strong,
+  .skill-card h3, .skill-card h4
+) {
+  font-family: "Noto Naskh Arabic", "Noto Sans Arabic", Tahoma, serif;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+html[lang="ar"] :is(
+  .eyebrow, .project-type, .experience-year,
+  .experience-phase-dates, .about-facts dt,
+  .volunteer-card-period, .volunteer-community-heading,
+  .skills-subsection-title, .brand-name
+) { letter-spacing: 0; }
+
+/* Keep headings in the positions already chosen (technical left, transversal right). */
+html[lang="ar"] .skills-subsection-title {
+  direction: ltr;
+}
+html[lang="ar"] #transferable-skills-title {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Bullets belong on the right of Arabic project summaries. */
+html[lang="ar"] .projects-carousel .project-highlights li {
+  direction: rtl;
+  text-align: right;
+  padding-left: 0;
+  padding-right: 17px;
+  line-height: 1.62;
+}
+html[lang="ar"] .projects-carousel .project-highlights li::before {
+  left: auto;
+  right: 1px;
+  top: .7em;
+}
+html[lang="ar"] .experience-detail-content ul {
+  padding-left: 0;
+  padding-right: 19px;
+}
+
+/* Keep technology names, source code and repository URLs readable LTR. */
+html[lang="ar"] .chip-list span,
+html[lang="ar"] .project-source-link,
+html[lang="ar"] .project-website-link,
+html[lang="ar"] .hero-bottom a,
+html[lang="ar"] .hero-title,
+html[lang="ar"] .brand {
+  unicode-bidi: isolate;
+}
+html[lang="ar"] .project-footer,
+html[lang="ar"] .project-actions,
+html[lang="ar"] .chip-list {
+  direction: ltr;
+}
+
+/* Original carousel scrolling calculations assume physical LTR scrollLeft. */
+html[lang="ar"] .projects-carousel-viewport,
+html[lang="ar"] .projects-carousel .projects-grid,
+html[lang="ar"] .projects-carousel .project-card {
+  direction: ltr;
+}
+html[lang="ar"] .projects-section .projects-carousel .preview-system::after {
+  content: "الصورة قريباً";
+  letter-spacing: 0;
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+}
+
+/* Navigation keeps existing order and width; only the Arabic labels use RTL. */
+html[lang="ar"] .site-header .site-nav { direction: ltr; }
+html[lang="ar"] .site-header .site-nav a {
+  direction: rtl;
+  font-size: clamp(.78rem, 1.05vw, .96rem);
+  letter-spacing: 0;
+}
+html[lang="ar"] .language-slot .language-trigger,
+html[lang="ar"] .language-slot .language-menu,
+html[lang="ar"] .header-actions { direction: ltr; }
+html[lang="ar"] .language-slot .language-button { direction: ltr; }
+html[lang="ar"] .header-resume { letter-spacing: 0; }
+html[lang="ar"] .footer-inner [data-i18n] { direction: rtl; }
+
+@media (max-width: 1050px) {
+  html[lang="ar"] .site-nav a { font-size: 1.05rem; }
+}
+@media (max-width: 800px) {
+  html[lang="ar"] .hero .hero-eyebrow { width: min(30rem, 72vw); }
+  html[lang="ar"] .hero .hero-caption {
+    max-width: min(30rem, 72vw);
+    width: min(30rem, 72vw);
+  }
+  html[lang="ar"] .hero .hero-role {
+    max-width: 100%;
+    font-size: clamp(1.05rem, 2.7vw, 1.4rem);
+  }
+  html[lang="ar"] .section-heading h2 {
+    font-size: clamp(2.15rem, 7.8vw, 4rem);
+  }
+}
+@media (max-width: 580px) {
+  html[lang="ar"] .hero .hero-eyebrow { width: min(20rem, 81vw); }
+  html[lang="ar"] .hero .hero-caption {
+    width: min(20rem, 81vw);
+    max-width: 100%;
+  }
+  html[lang="ar"] .hero .hero-role {
+    font-size: clamp(.95rem, 3.1vw, 1.2rem);
+    line-height: 1.35;
+  }
+  html[lang="ar"] .hero .hero-description {
+    font-size: clamp(.76rem, 2.8vw, .9rem);
+    line-height: 1.65;
+  }
+  html[lang="ar"] .section-heading h2 {
+    font-size: clamp(1.9rem, 8.5vw, 3.1rem);
+    line-height: 1.35;
+  }
+}
+
+
+/* =============================================================
+   ARABIC RTL — FULL LAYOUT ALIGNMENT (patch 2026-11-01)
+   LTR photo positions, image order and carousel scroll math remain.
+   These overrides apply ONLY when AR is selected.
+   ============================================================= */
+
+/* 1. Section index on the RIGHT, followed by the Arabic title,
+   then the thin rule filling the LEFT. FR and EN unchanged. */
+html[lang="ar"] .section .section-heading {
+  direction: rtl;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+html[lang="ar"] .section .section-heading .section-index {
+  direction: rtl;
+  unicode-bidi: isolate;
+  flex: 0 0 auto;
+  text-align: right;
+}
+html[lang="ar"] .section .section-heading h2 {
+  direction: rtl;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: right;
+  white-space: normal;
+  line-height: 1.35;
+  gap: .12em;
+}
+html[lang="ar"] .section .section-heading h2 em {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+html[lang="ar"] .section .section-heading .section-rule {
+  flex: 1 1 auto;
+  min-width: 14px;
+}
+
+/* 2. Hero: welcome message stays WITH the name at the LEFT,
+   not over the portrait. The title remains SALMA SAJID in Latin. */
+html[lang="ar"] .hero .hero-layout > .hero-content {
+  direction: ltr;
+  text-align: left;
+}
+html[lang="ar"] .hero .hero-eyebrow {
+  display: block;
+  width: fit-content;
+  max-width: min(35rem, 90%);
+  margin: 0 0 clamp(.4rem, 1.2svh, .8rem) 0;
+  direction: rtl;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: 1.6;
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+  font-size: clamp(.84rem, 1.25vw, 1.08rem);
+}
+html[lang="ar"] .hero .hero-caption {
+  box-sizing: border-box;
+  direction: rtl;
+  text-align: right;
+  margin-right: 0;
+  margin-left: 0;
+  width: min(36rem, 44vw);
+  max-width: min(36rem, 44vw);
+}
+html[lang="ar"] .hero .hero-role,
+html[lang="ar"] .hero .hero-description {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  direction: rtl;
+  text-align: right;
+  overflow-wrap: break-word;
+}
+
+/* 3. The About text never paints under the university photo.
+   Intrinsic text width is allowed to shrink inside its own grid cell. */
+html[lang="ar"] .about-grid {
+  direction: ltr;
+  align-items: center;
+}
+html[lang="ar"] .about-intro {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  padding-right: clamp(.65rem, 2vw, 2rem);
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+}
+html[lang="ar"] .about-intro .lead {
+  max-width: 100%;
+  min-width: 0;
+  font-size: clamp(1.1rem, 1.5vw, 1.52rem);
+  line-height: 1.85;
+  overflow-wrap: break-word;
+}
+html[lang="ar"] .about-visual { min-width: 0; }
+html[lang="ar"] .about-facts { min-width: 0; }
+
+/* 4. Experience: plus LEFT, company in the MIDDLE,
+   date RIGHT; logo and all copy follow Arabic RTL. */
+@media (min-width: 801px) {
+  html[lang="ar"] .experience-section .experience-item summary {
+    direction: ltr;
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) minmax(150px, .33fr);
+    column-gap: clamp(12px, 2vw, 30px);
+    align-items: center;
+  }
+  html[lang="ar"] .experience-section .experience-item .experience-toggle {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+  html[lang="ar"] .experience-section .experience-item .experience-summary {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  html[lang="ar"] .experience-section .experience-item .experience-year {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+  html[lang="ar"] .experience-section .experience-detail {
+    padding: 0 clamp(14px, 3vw, 45px) 30px clamp(50px, 4vw, 70px);
+  }
+}
+html[lang="ar"] .experience-section .experience-summary {
+  direction: rtl;
+  text-align: right;
+  padding-inline-start: 62px;
+  padding-inline-end: 0;
+}
+html[lang="ar"] .experience-section .experience-summary strong,
+html[lang="ar"] .experience-section .experience-summary small {
+  direction: rtl;
+  text-align: right;
+  overflow-wrap: break-word;
+}
+html[lang="ar"] .experience-section .experience-year {
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: right;
+  white-space: normal;
+  letter-spacing: 0;
+}
+html[lang="ar"] .experience-section .experience-detail-content,
+html[lang="ar"] .experience-section .experience-phase {
+  direction: rtl;
+  text-align: right;
+}
+html[lang="ar"] .experience-section .experience-detail-content ul {
+  direction: rtl;
+  text-align: right;
+  padding-right: 1.25rem;
+  padding-left: 0;
+}
+html[lang="ar"] .experience-section .experience-detail-content .chip-list,
+html[lang="ar"] .experience-section .experience-phase .chip-list {
+  direction: rtl;
+  justify-content: flex-start;
+  align-items: center;
+}
+html[lang="ar"] .experience-section .experience-detail-content .chip-list span {
+  unicode-bidi: isolate;
+}
+@media (max-width: 800px) {
+  html[lang="ar"] .experience-section .experience-item summary {
+    direction: ltr;
+    grid-template-columns: 40px minmax(0,1fr);
+    gap: 10px 13px;
+  }
+  html[lang="ar"] .experience-section .experience-year {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  html[lang="ar"] .experience-section .experience-summary {
+    grid-column: 2;
+    grid-row: 2;
+    padding-inline-start: 52px;
+    min-width: 0;
+  }
+  html[lang="ar"] .experience-section .experience-toggle {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+}
+
+/* 5. Subtitles of Experience and Projects right-aligned. */
+html[lang="ar"] .experience-section .section-subheading,
+html[lang="ar"] .projects-section .section-subheading {
+  display: flex;
+  direction: rtl;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+html[lang="ar"] .experience-section .section-subheading p,
+html[lang="ar"] .projects-section .section-subheading p {
+  width: 100%;
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+/* 6. Skill badges/technologies flow from the RIGHT. */
+html[lang="ar"] .skills-section .skill-card {
+  direction: rtl;
+  text-align: right;
+}
+html[lang="ar"] .skills-section .skill-card .chip-list {
+  direction: rtl;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: right;
+}
+html[lang="ar"] .skills-section .skill-card .chip-list span {
+  unicode-bidi: isolate;
+}
+
+/* 7. Visually mirror carousel arrows and controls for Arabic.
+   The scroll container remains LTR, so the JS still indexes correctly. */
+html[lang="ar"] .projects-carousel-arrows { flex-direction: row-reverse; }
+html[lang="ar"] .projects-carousel-arrow svg { transform: scaleX(-1); }
+
+/* 8. Navbar: brand on the RIGHT, then links in RTL order;
+   controls on LEFT. On mobile hamburger also stays at left. */
+html[lang="ar"] .site-header .header-inner { direction: ltr; flex-direction: row-reverse; }
+html[lang="ar"] .site-header .site-nav {
+  direction: rtl;
+  flex-direction: row;
+}
+html[lang="ar"] .site-header .site-nav a {
+  direction: rtl;
+  text-align: right;
+}
+html[lang="ar"] .site-header .header-actions { direction: ltr; flex-direction: row-reverse; }
+html[lang="ar"] .site-header .brand { direction: ltr; }
+html[lang="ar"] .site-header .site-nav a::after { left: auto; right: 0; }
+@media (max-width: 1050px) {
+  html[lang="ar"] .site-header .site-nav {
+    direction: rtl;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: right;
+  }
+  html[lang="ar"] .site-header .site-nav a { text-align: right; }
+}
+@media (max-width: 580px) {
+  html[lang="ar"] .hero .hero-eyebrow {
+    max-width: min(21rem, 85vw);
+    font-size: clamp(.68rem, 2.8vw, .9rem);
+  }
+  html[lang="ar"] .hero .hero-caption {
+    width: min(19rem, 78vw);
+    max-width: 100%;
+  }
+  html[lang="ar"] .about-intro { padding-right: 0; }
+}
+
+/* Keep the numeric project counter readable: 01 / 04 (not 04 / 01). */
+html[lang="ar"] .projects-carousel-progress {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+
+/* 11. Arabic carousel control layout: LEFT arrow = next project,
+   RIGHT arrow = previous project. The actual slides remain in their
+   original sequence (SIG, Nails, Maison, Tray), in every language. */
+html[lang="ar"] .projects-carousel-controls {
+  direction: ltr;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+html[lang="ar"] .projects-carousel-progress {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  direction: ltr;
+}
+html[lang="ar"] .projects-carousel-dots {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+}
+html[lang="ar"] .projects-carousel-arrows {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  direction: ltr;
+  display: flex;
+  flex-direction: row-reverse;
+}
+/* HTML contains previous then next. Row-reverse places NEXT leftmost. */
+html[lang="ar"] #projects-carousel-prev,
+html[lang="ar"] #projects-carousel-next {
+  order: 0;
+}
+/* Mirror both icon glyphs, not the content of any slide. */
+html[lang="ar"] .projects-carousel-arrow svg {
+  transform: scaleX(-1);
+}
+@media (max-width: 480px) {
+  html[lang="ar"] .projects-carousel-controls {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
+
+/* CARROUSEL — DÉFILEMENT PHYSIQUE RTL UNIQUEMENT EN ARABE
+   En arabe, SIG est à droite, puis Nails à sa gauche, puis Maison, puis Plateau.
+   Les flèches et le compteur déjà corrigés restent inchangés.
+   La structure interne image à gauche / texte à droite ne change pas. */
+html[lang="ar"] .projects-section .projects-carousel-viewport,
+html[lang="ar"] .projects-section .projects-carousel .projects-grid {
+  direction: rtl;
+}
+
+html[lang="ar"] .projects-section .projects-carousel .project-card {
+  direction: ltr;
+}
+
+/* =============================================================
+   ARABIC HERO — name and greeting aligned to the same right edge.
+   Layout/typography changes are scoped to lang="ar" only.
+   ============================================================= */
+
+/* One text column next to the portrait. Its right edge is shared by
+   the greeting, both name lines, the role and the description. */
+@media (min-width: 1051px) {
+  html[lang="ar"] .hero .hero-layout > .hero-content {
+    width: min(53vw, 690px);
+    max-width: 100%;
+  }
+}
+
+html[lang="ar"] .hero .hero-layout > .hero-content {
+  direction: rtl;
+  text-align: right;
+  z-index: 7; /* la photo et son dégradé ne masquent plus le texte arabe */
+}
+
+html[lang="ar"] .hero .hero-eyebrow {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0 0 clamp(.35rem, 1.1svh, .75rem);
+  direction: rtl;
+  text-align: right;
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+  font-weight: 700;
+  font-size: clamp(.88rem, 1.35vw, 1.08rem);
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .hero .hero-title {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+  font-family: "Noto Naskh Arabic", "Noto Sans Arabic", Tahoma, serif;
+  font-size: clamp(5rem, 8.5vw, 8.2rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+html[lang="ar"] .hero .hero-title .hero-title-first,
+html[lang="ar"] .hero .hero-title .hero-title-last {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  text-align: right;
+  direction: rtl;
+}
+
+/* Retain the original filled-first / outlined-second-name treatment. */
+html[lang="ar"] .hero .hero-title-last {
+  color: transparent;
+  -webkit-text-stroke: 1.35px #d98684;
+}
+
+html[lang="ar"] .hero .hero-caption {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: clamp(.45rem, 1.3svh, .9rem);
+  direction: rtl;
+  text-align: right;
+}
+
+html[lang="ar"] .hero .hero-role,
+html[lang="ar"] .hero .hero-description {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  direction: rtl;
+  text-align: right;
+  white-space: normal;
+}
+
+html[lang="ar"] .site-header .brand-name {
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+  font-size: clamp(.82rem, 1.05vw, 1rem);
+  line-height: 1.4;
+  letter-spacing: 0;
+  direction: rtl;
+}
+
+/* Compact hero uses absolute positioning; constrain the shared column
+   to the available left-hand area without overlaying the portrait. */
+@media (min-width: 581px) and (max-width: 1050px) {
+  html[lang="ar"] .hero .hero-layout > .hero-content {
+    width: min(49vw, 510px);
+    max-width: 100%;
+  }
+  html[lang="ar"] .hero .hero-title {
+    font-size: clamp(4.2rem, 9.5vw, 7rem);
+  }
+}
+
+@media (max-width: 580px) {
+  html[lang="ar"] .hero .hero-layout > .hero-content {
+    width: min(54vw, 15rem);
+    max-width: 100%;
+  }
+  html[lang="ar"] .hero .hero-eyebrow {
+    font-size: clamp(.72rem, 2.75vw, .92rem);
+  }
+  html[lang="ar"] .hero .hero-title {
+    font-size: clamp(3.3rem, 14vw, 5.2rem);
+    line-height: 1.03;
+  }
+  html[lang="ar"] .hero .hero-caption {
+    margin-top: .4rem;
+  }
+  html[lang="ar"] .hero .hero-role {
+    font-size: clamp(.95rem, 3.3vw, 1.18rem);
+    line-height: 1.5;
+  }
+  html[lang="ar"] .hero .hero-description {
+    font-size: clamp(.76rem, 2.7vw, .9rem);
+    line-height: 1.7;
+  }
+}
+
+@media (max-height: 660px) and (min-width: 581px) {
+  html[lang="ar"] .hero .hero-title {
+    font-size: clamp(3.7rem, min(7vw, 11svh), 6.2rem);
+  }
+}
+
+
+/* ACCUEIL — ESPACEMENT ET BOUTON ALIGNÉ EN ARABE UNIQUEMENT */
+html[lang="ar"] .hero .hero-layout {
+  /* Largeur commune : le texte et le bouton ont exactement le même bord droit. */
+  --ar-hero-column: min(43vw, 580px);
+}
+
+@media (min-width: 1051px) {
+  html[lang="ar"] .hero .hero-layout > .hero-content {
+    width: var(--ar-hero-column);
+    max-width: 100%;
+  }
+}
+
+/* Ne laisser ni le titre ni la description se rapprocher du portrait. */
+html[lang="ar"] .hero .hero-layout > .hero-content .hero-caption {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Le bouton suit le bord droit de la colonne arabe, pas le bord gauche du site. */
+html[lang="ar"] body .hero .hero-layout > .scroll-prompt {
+  position: absolute;
+  left: auto;
+  right: calc(100% - var(--ar-hero-column));
+  width: max-content;
+  min-width: 260px;
+  max-width: var(--ar-hero-column);
+  padding: 6px 8px 6px 18px;
+  gap: 12px;
+  direction: rtl;
+  justify-content: space-between;
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+  font-size: clamp(.87rem, 1.1vw, 1rem);
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+html[lang="ar"] .hero .hero-layout > .scroll-prompt > span:first-child {
+  display: block;
+  min-width: 0;
+  white-space: nowrap;
+  direction: rtl;
+}
+
+@media (min-width: 581px) and (max-width: 1050px) {
+  html[lang="ar"] .hero .hero-layout {
+    --ar-hero-column: min(39vw, 420px);
+  }
+  html[lang="ar"] .hero .hero-layout > .hero-content {
+    width: var(--ar-hero-column);
+    max-width: 100%;
+  }
+  html[lang="ar"] body .hero .hero-layout > .scroll-prompt {
+    min-width: min(250px, var(--ar-hero-column));
+    font-size: .84rem;
+  }
+}
+
+@media (max-width: 580px) {
+  html[lang="ar"] .hero .hero-layout {
+    --ar-hero-column: min(49vw, 12.5rem);
+  }
+  html[lang="ar"] .hero .hero-layout > .hero-content {
+    width: var(--ar-hero-column);
+    max-width: 100%;
+  }
+  html[lang="ar"] body .hero .hero-layout > .scroll-prompt {
+    width: var(--ar-hero-column);
+    min-width: 0;
+    max-width: var(--ar-hero-column);
+    padding: 5px 5px 5px 10px;
+    gap: 6px;
+    font-size: clamp(.65rem, 2.7vw, .78rem);
+  }
+  html[lang="ar"] body .hero .hero-layout > .scroll-prompt .scroll-arrow {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+  }
+}
+
+
+/* BOUTON ARABE — RAPPROCHER LE TEXTE ET LA FLÈCHE */
+
+html[lang="ar"] body .hero .hero-layout > .scroll-prompt {
+  width: max-content;
+  min-width: 0;
+  max-width: var(--ar-hero-column);
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 6px 10px;
+}
+
+/* Garder le bouton compact sur petits écrans */
+@media (max-width: 1050px) {
+  html[lang="ar"] body .hero .hero-layout > .scroll-prompt {
+    width: fit-content;
+    min-width: 0;
+  }
+}
+
+
+/* ACCUEIL ARABE — PLUS D'ESPACE ENTRE TEXTE ET PORTRAIT */
+
+/* Ordinateur */
+@media (min-width: 1051px) {
+  html[lang="ar"] .hero .hero-layout {
+    --ar-hero-column: min(39vw, 530px);
+  }
+}
+
+/* Tablette et écrans intermédiaires */
+@media (min-width: 581px) and (max-width: 1050px) {
+  html[lang="ar"] .hero .hero-layout {
+    --ar-hero-column: min(35vw, 380px);
+  }
+}
+
+
+/* À PROPOS — PLUS D'ESPACE ENTRE TEXTE ARABE ET PHOTO */
+
+@media (min-width: 801px) {
+  html[lang="ar"] .about-section .about-intro {
+    padding-right: clamp(40px, 4vw, 75px);
+    box-sizing: border-box;
+  }
+}
+
+/* NAVBAR COMPACTE — LOGO À GAUCHE, BOUTONS À DROITE */
+
+@media (max-width: 1050px) {
+
+  .site-header .header-inner,
+  html[lang="ar"] .site-header .header-inner {
+    display: flex;
+    flex-direction: row;
+    direction: ltr;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Logo toujours à gauche */
+  .site-header .brand {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  /* Nom masqué en format compact */
+  .site-header .brand-name {
+    display: none !important;
+  }
+
+  /* Tous les boutons regroupés à droite */
+  .site-header .header-actions {
+    margin-left: auto;
+    margin-right: 0;
+    flex: 0 0 auto;
+  }
+}
+
+/* MENU HAMBURGER — BARRES VISIBLES EN MODE CLAIR */
+
+@media (max-width: 1050px) {
+
+  /* Mode clair classique */
+  body[data-theme="light"]:not([data-vision="safe"])
+  .site-header .menu-button span {
+    background: #3F1116 !important;
+    height: 2px;
+    width: 19px;
+    border-radius: 2px;
+  }
+
+  /* Mode clair — couleurs adaptées */
+  body[data-theme="light"][data-vision="safe"]
+  .site-header .menu-button span {
+    background: #122C43 !important;
+    height: 2px;
+    width: 19px;
+    border-radius: 2px;
+  }
+}
+
+
+/* NAVBAR ARABE — LOGO À DROITE, BOUTONS À GAUCHE */
+
+@media (max-width: 1050px) {
+
+  html[lang="ar"] .site-header .header-inner {
+    display: flex;
+    flex-direction: row-reverse !important;
+    direction: ltr;
+    justify-content: space-between !important;
+    align-items: center;
+  }
+
+  /* Logo SS à l'extrême droite */
+  html[lang="ar"] .site-header .brand {
+    flex: 0 0 auto;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Boutons regroupés à gauche */
+  html[lang="ar"] .site-header .header-actions {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    flex: 0 0 auto;
+  }
+
+  /* Garder le nom masqué */
+  html[lang="ar"] .site-header .brand-name {
+    display: none !important;
+  }
+}
+
+
+/* À PROPOS — ESPACEMENT ÉQUILIBRÉ EN ARABE */
+
+@media (min-width: 1051px) {
+
+  html[lang="ar"] .about-section .about-intro {
+    padding-right: 0 !important;
+    padding-left: 0;
+    margin: 0;
+    min-width: 0;
+    text-align: right;
+    direction: rtl;
+  }
+
+}
+
+
+/* Localized text in the decorative previews: preserve visual structure. */
+html[lang="ar"] :is(.mock-booking-services, .mock-booking-calendar, .mock-maison-tagline, .tray-drawing) [data-i18n],
+html[lang="ar"] .mock-maison-tagline[data-i18n] {
+  direction: rtl;
+  unicode-bidi: isolate;
+  letter-spacing: 0;
+  font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+}
+html[lang="ar"] .mock-booking-services b[data-i18n] {
+  font-size: clamp(.52rem, .8vw, .72rem);
+  line-height: 1.5;
+}
+html[lang="ar"] .tray-drawing {
+  line-height: 1.7;
+}

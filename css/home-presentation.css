@@ -1,83 +1,275 @@
-.presentation {
-  width: 100vw;
-  margin: 0;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-top: 5%;
-  overflow: hidden;
-  background-color: whitesmoke;
+/* SALMA SAJID — home-presentation.css | Style isolé par composant */
+
+/* ABOUT */
+.about-section {
+  background: var(--ivory);
+  color: var(--cranberry);
 }
 
-.titre-presentation {
-  opacity: 0;
-  transform: translateY(5vh);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-  font-size: clamp(2rem, 6vw, 4rem);
-  font-family: 'Roboto', sans-serif;
+.about-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(180px, .8fr)
+    minmax(210px, .85fr);
+  gap: clamp(25px, 4vw, 70px);
+  align-items: stretch;
+}
+
+.about-intro {
+  max-width: 520px;
+  align-self: center;
+}
+
+.about-intro .lead {
+  font-family: var(--serif-reading);
+  font-size: clamp(21px,2vw,29px);
+  line-height: 1.54;
   font-weight: 400;
-  margin-bottom: 4vh;
-  color: rgba(255, 255, 255, 0.9);
-  animation: neon-flicker 2.5s 1 forwards;
-  text-shadow:
-    0 0 0.4vw #ff4ec4,
-    0 0 0.8vw #ff4ec4,
-    0 0 1.2vw #ff4ec4,
-    0 0 1.6vw #b20164,
-    0 0 2vw #b20164;
 }
 
-@keyframes neon-flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-    text-shadow:
-      0 0 0.4vw #ff4ec4,
-      0 0 0.8vw #ff4ec4,
-      0 0 1.2vw #ff4ec4,
-      0 0 1.6vw #b20164,
-      0 0 2vw #b20164;
-  }
-  20%, 22%, 24%, 55% {
-    opacity: 0.2;
-    text-shadow:
-      0 0 0.2vw #ff4ec4,
-      0 0 0.4vw #ff4ec4,
-      0 0 0.6vw #b20164;
-  }
-  70% {
-    opacity: 0.6;
-    text-shadow:
-      0 0 0.3vw #ff4ec4,
-      0 0 0.6vw #ff4ec4,
-      0 0 1vw #b20164;
+.about-intro p:not(.lead) {
+  margin-top: 23px;
+  color: #704c45;
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.about-intro .inline-link {
+  margin-top: 31px;
+}
+
+.about-visual {
+  align-self: stretch;
+  min-height: 370px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.about-facts .fact {
+  padding: 16px 0;
+  border-bottom: 1px solid #d7bbb0;
+}
+
+.about-facts dt {
+  margin-bottom: 7px;
+  color: #956a5e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.about-facts dd {
+  font-size: 13px;
+  line-height: 1.65;
+  font-weight: 600;
+}
+
+/* ==========================================
+   PHOTO UOTTAWA — HAUTEUR AUTOMATIQUE
+   ========================================== */
+
+.about-section .about-visual {
+  position: relative;
+  display: block;
+  align-self: stretch;
+
+  width: 100%;
+  max-width: 330px;
+  height: auto;
+  min-height: 0;
+
+  margin-inline: auto;
+}
+
+.about-section .about-photo {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  object-fit: cover;
+  object-position: 62% center;
+
+  border-radius: 20px;
+  border: 1px solid #d7bbb0;
+  box-shadow: 14px 14px 0 #dcc0ad;
+
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease;
+}
+
+.about-section .about-photo:hover {
+  transform: translateY(-4px);
+  box-shadow: 17px 18px 0 #dcc0ad;
+}
+
+/* TABLETTE */
+@media (max-width: 800px) {
+  .about-section .about-visual {
+    width: 100%;
+    max-width: 360px;
+    height: 300px;
+    min-height: 0;
   }
 }
 
-.titre-presentation.visible {
+/* TÉLÉPHONE */
+@media (max-width: 580px) {
+  .about-section .about-visual {
+    width: min(100%, 340px);
+    height: 250px;
+    min-height: 0;
+  }
+}
+
+/* ACCESSIBILITÉ */
+@media (prefers-reduced-motion: reduce) {
+  .about-section .about-photo {
+    transition: none;
+  }
+}
+
+@media (min-width: 1051px) {
+  .about-grid {
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      minmax(0, 0.75fr)
+      minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 55px);
+  }
+}
+
+
+/* ==========================================
+   UOTTAWA PHOTO — VELVET CHERRY GLOW
+   ========================================== */
+
+.about-section .about-visual {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+/* Halo lumineux derrière la photo */
+.about-section .about-visual::before {
+  content: "";
+  position: absolute;
+
+  inset: -12px -25px -18px 5px;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 85% 42%,
+      rgba(255, 219, 173, .55) 0%,
+      rgba(219, 135, 115, .36) 30%,
+      rgba(128, 45, 59, .22) 55%,
+      transparent 78%
+    );
+
+  filter: blur(20px);
+  opacity: .85;
+
+  transition:
+    opacity .5s ease,
+    transform .5s ease;
+}
+
+/* Photo au premier plan, sans ombre rectangulaire */
+.about-section .about-photo,
+.about-section .about-photo:hover {
+  position: absolute;
+  z-index: 1;
+  box-shadow: none;
+}
+
+/* Le halo s'intensifie légèrement au survol */
+.about-section .about-visual:hover::before {
   opacity: 1;
-  transform: translateY(0);
+  transform: scale(1.04);
 }
 
-.a-propos-de-moi,
-.comment-je-travaille {
-  padding: 1.5%;
-  margin-bottom: 2%;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+/* Mode couleurs adaptées */
+body[data-vision="safe"] .about-visual::before {
+  background:
+    radial-gradient(
+      ellipse at 85% 42%,
+      rgba(190, 215, 239, .48),
+      rgba(67, 111, 155, .24) 48%,
+      transparent 78%
+    );
 }
 
-.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Réduire les animations si demandé */
+@media (prefers-reduced-motion: reduce) {
+  .about-section .about-visual::before {
+    transition: none;
+  }
 }
 
-.presentation h3 {
-  color: #b20164;
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
+
+/* EARLIER EDUCATION — distinct from current university facts */
+
+/* =====================================================
+   À PROPOS — photo du campus plus large, sans changer
+   sa hauteur, décalée légèrement vers la gauche.
+   L'illustration reste dans son espace de grille.
+   ===================================================== */
+@media (min-width: 1280px) {
+  .about-section .about-visual {
+    width: min(410px, calc(100% + 60px));
+    max-width: none;
+    margin: 0;
+    justify-self: end;
+    transform: translateX(-12px);
+  }
 }
 
-.presentation p {
-  color: #333;
-  line-height: 1.6;
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
+
+/* À PROPOS — SÉPARER CORRECTEMENT TEXTE ET PHOTO */
+
+@media (min-width: 1051px) {
+
+  /* Réserver une vraie colonne pour la photo */
+  .about-section .about-grid {
+    grid-template-columns:
+      minmax(0, 1.1fr)
+      minmax(0, .95fr)
+      minmax(0, 1fr);
+
+    column-gap: clamp(35px, 3.5vw, 65px);
+    align-items: stretch;
+  }
+
+  /* Le texte reste dans sa propre colonne */
+  .about-section .about-intro {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    align-self: center;
+  }
+
+  .about-section .about-intro .lead {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  /* Photo large, mais sans empiéter sur le texte */
+  .about-section .about-visual {
+    width: 100%;
+    max-width: 410px;
+    min-width: 0;
+    margin-inline: auto;
+    justify-self: center;
+    transform: none;
+  }
 }

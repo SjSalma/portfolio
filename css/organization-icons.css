@@ -1,0 +1,96 @@
+/* Logos officiels fournis et choisis par Salma.
+   Les cadres sont uniformes; les images conservent leurs proportions. */
+.org-icon {
+  --org-size: 48px;
+  box-sizing: border-box;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 var(--org-size);
+  inline-size: var(--org-size);
+  block-size: var(--org-size);
+  overflow: hidden;
+  border: 1px solid rgba(100, 48, 56, .18);
+  border-radius: 12px;
+  background: #fff;
+  vertical-align: middle;
+}
+.org-icon img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+/* Le logo s'insère à gauche de l'entreprise sans modifier
+   le fonctionnement du détail dépliant de l'expérience. */
+.experience-section .experience-summary {
+  position: relative;
+  min-block-size: 50px;
+  padding-inline-start: 62px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.experience-section .experience-summary > .org-icon {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* Au-delà du code : trois grands engagements. */
+.volunteer-section .volunteer-identity {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 18px);
+  margin: 14px 0 16px;
+}
+.volunteer-section .volunteer-identity > .org-icon {
+  --org-size: 56px;
+  border-radius: 14px;
+}
+.volunteer-section .volunteer-identity > h3 {
+  margin: 0;
+  min-inline-size: 0;
+}
+/* Les deux associations plus petites. */
+.volunteer-section .volunteer-community-card h4:has(> .org-icon) {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 10px;
+}
+.volunteer-section .volunteer-community-card h4 > .org-icon {
+  --org-size: 42px;
+  border-radius: 10px;
+}
+body[data-vision="safe"] .org-icon {
+  border-color: var(--safe-border, currentColor);
+}
+@media (max-width: 580px) {
+  .experience-section .experience-summary {
+    padding-inline-start: 54px;
+    min-block-size: 44px;
+  }
+  .experience-section .org-icon {
+    --org-size: 42px;
+    border-radius: 10px;
+  }
+  .volunteer-section .volunteer-identity > .org-icon {
+    --org-size: 46px;
+    border-radius: 11px;
+  }
+  .volunteer-section .volunteer-community-card h4 > .org-icon {
+    --org-size: 36px;
+  }
+}
+
+
+/* LOGOS — MÊME COULEUR DE CONTOUR QUE LES PHOTOS */
+
+.org-icon {
+  border: 1px solid #8E5555;
+}
+
+body[data-vision="safe"] .org-icon {
+  border-color: var(--safe-border);
+}

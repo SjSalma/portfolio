@@ -1,45 +1,55 @@
-const header = document.querySelector('header');
-const nav = document.querySelector('nav');
-const checkbox = document.getElementById('nav_toggle');
+/* Portfolio Velvet Cherry — scripts organisés par composant, comme ton premier portfolio. */
+'use strict';
 
-function updateNavBlur() {
-  const scrollY = window.scrollY;
-  const isDesktop = window.innerWidth >= 700;
-  const isMenuOpen = checkbox.checked;
-  const blurAmount = Math.min(scrollY / 15, 5);
+const header = document.getElementById('site-header');
+const menuButton = document.getElementById('menu-toggle');
+const nav = document.getElementById('site-nav');
+const progress = document.getElementById('scroll-progress');
 
-  if (isDesktop) {
-    header.classList.toggle('scrolled', scrollY > 0);
-    header.style.backdropFilter = scrollY > 0 ? `blur(${blurAmount}px)` : 'none';
-    header.style.webkitBackdropFilter = scrollY > 0 ? `blur(${blurAmount}px)` : 'none';
-
-    nav.classList.remove('scrolled', 'nav-scrolled');
-    nav.style.backdropFilter = 'none';
-    nav.style.webkitBackdropFilter = 'none';
-  } else {
-    header.classList.remove('scrolled');
-    header.style.backdropFilter = 'none';
-    header.style.webkitBackdropFilter = 'none';
-
-    if (isMenuOpen) {
-      nav.classList.add('scrolled');
-      nav.style.backdropFilter = 'blur(10px)';
-      nav.style.webkitBackdropFilter = 'blur(10px)';
-
-      // ✅ Ajoute classe spéciale uniquement si scroll
-      if (scrollY > 0) {
-        nav.classList.add('nav-scrolled');
-      } else {
-        nav.classList.remove('nav-scrolled');
-      }
-
-    } else {
-      nav.classList.remove('scrolled', 'nav-scrolled');
-      nav.style.backdropFilter = 'none';
-      nav.style.webkitBackdropFilter = 'none';
-    }
-  }
+function updateMenuLabel() {
+  const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-label', expanded ? TRANSLATIONS[language].menuClose : TRANSLATIONS[language].menuOpen);
+}
+function closeMenu({ restoreFocus = false } = {}) {
+  nav.classList.remove('is-open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  updateMenuLabel();
+  if (restoreFocus) menuButton.focus();
 }
 
-window.addEventListener('scroll', updateNavBlur);
-checkbox.addEventListener('change', updateNavBlur);
+menuButton.addEventListener('click', () => {
+  const willOpen = !nav.classList.contains('is-open');
+  nav.classList.toggle('is-open', willOpen);
+  menuButton.setAttribute('aria-expanded', String(willOpen));
+  updateMenuLabel();
+});
+nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeMenu()));
+document.addEventListener('click', (event) => {
+  if (!nav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && nav.classList.contains('is-open')) closeMenu({ restoreFocus: true });
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1050) closeMenu();
+}, { passive: true });
+
+// Active navigation: mark the section currently visible.
+if ('IntersectionObserver' in window) {
+  const sectionLinks = new Map([...nav.querySelectorAll('a[href^="#"]')].map((el) => [el.getAttribute('href').slice(1), el]));
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      sectionLinks.forEach((link, id) => {
+        const active = id === entry.target.id;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-25% 0px -62% 0px' });
+  document.querySelectorAll('main > section[id]').forEach((section) => {
+    navObserver.observe(section);
+  });
+}
+

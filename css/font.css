@@ -1,4 +1,8 @@
-@font-face {
-  font-family: 'Roboto';
-  src: url('../font/Roboto.ttf') format('truetype');
+/* Correspond à ton ancien css/font.css.
+   Les polices de base sont chargées par Google Fonts dans index.html.
+   Les polices système restent en secours si la connexion est indisponible. */
+:root {
+  --sans: "Atkinson Hyperlegible Next", Arial, sans-serif;
+  --serif: "Literata", Georgia, serif;
+  --serif-reading: "Literata", Georgia, serif;
 }

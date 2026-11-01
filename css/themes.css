@@ -1,0 +1,419 @@
+/* SALMA SAJID — themes.css | Style isolé par composant */
+
+/* LIGHT MODE — same cherry identity, softer sections and lighter hero. */
+body[data-theme="light"] {
+  background: var(--ivory);
+}
+
+body[data-theme="light"] .site-header {
+  background: rgba(255,241,233,.88);
+  border-bottom-color: #dbc2b5;
+  color: var(--cranberry);
+}
+
+body[data-theme="light"] .site-header.is-scrolled {
+  background: rgba(255,241,233,.96);
+}
+
+body[data-theme="light"] .language-control,body[data-theme="light"] .theme-button,body[data-theme="light"] .menu-button,body[data-theme="light"] .header-resume {
+  border-color: #b38d85;
+}
+
+body[data-theme="light"] .language-button[aria-pressed="true"] {
+  background: var(--cranberry);
+}
+
+body[data-theme="light"] .sun-icon {
+  display: none;
+}
+
+body[data-theme="light"] .moon-icon {
+  display: block;
+}
+
+body[data-theme="light"] .header-resume:hover {
+  background: var(--cranberry);
+  color: var(--ivory);
+}
+
+body[data-theme="light"] .hero {
+  color: var(--cranberry);
+  background:
+    radial-gradient(circle at 84% 34%,
+      rgba(184, 70, 84, .30) 0%,
+      rgba(214, 124, 129, .24) 14%,
+      rgba(255, 241, 233, .06) 34%,
+      transparent 56%),
+    linear-gradient(135deg, #fff4ee 0%, #f9e1d5 33%, #efc8c2 63%, #e3a7ad 100%);
+}
+
+body[data-theme="light"] .hero::before {
+  background:
+    linear-gradient(90deg, rgba(255,244,238,.88), transparent 58%),
+    radial-gradient(circle at 100% 28%, rgba(179,69,82,.12), transparent 36%);
+}
+
+body[data-theme="light"] .hero-grain {
+  opacity: .05;
+}
+
+body[data-theme="light"] .hero-orbit {
+  border-color: #984b5152;
+}
+
+body[data-theme="light"] .hero-eyebrow,body[data-theme="light"] .hero-role {
+  color: var(--cranberry);
+}
+
+body[data-theme="light"] .hero-description {
+  color: #64403e;
+}
+
+body[data-theme="light"] .hero-title-last {
+  -webkit-text-stroke-color: #a05c63;
+}
+
+body[data-theme="light"] .hero-bottom,body[data-theme="light"] .hero-handwritten {
+  color: #5f2c31;
+}
+
+body[data-theme="light"] .portrait-glow {
+  opacity: .55;
+}
+
+body[data-theme="light"] .about-section {
+  background: #fff7ef;
+}
+
+body[data-theme="light"] .experience-section {
+  background: var(--ivory);
+}
+
+body[data-theme="light"] .projects-section {
+  background: #edd8cb;
+  color: var(--cranberry);
+}
+
+body[data-theme="light"] .projects-section .section-index {
+  color: var(--velvet);
+}
+
+body[data-theme="light"] .projects-section .section-heading h2 em {
+  color: #8f3c45;
+}
+
+body[data-theme="light"] .project-card {
+  background: #fff1e9;
+  border-color: #cea79e;
+}
+
+body[data-theme="light"] .project-type {
+  color: #8b3d4d;
+}
+
+body[data-theme="light"] .project-details>p:not(.project-type) {
+  color: #714e48;
+}
+
+body[data-theme="light"] .project-footer .chip-list span {
+  color: var(--cranberry);
+  border-color: #c7a299;
+}
+
+body[data-theme="light"] .round-arrow {
+  color: var(--cranberry);
+  border-color: #a66c6e;
+}
+
+body[data-theme="light"] .round-arrow:hover {
+  color: #fff;
+}
+
+body[data-theme="light"] .skills-section {
+  background: #fff7ef;
+}
+
+body[data-theme="light"] .volunteer-section {
+  background: linear-gradient(130deg,#e8c6bf,#f3ded4);
+  color: var(--cranberry);
+}
+
+body[data-theme="light"] .volunteer-section .section-index,body[data-theme="light"] .volunteer-section .section-heading h2 em {
+  color: var(--velvet);
+}
+
+body[data-theme="light"] .volunteer-copy .eyebrow {
+  color: #904047;
+}
+
+body[data-theme="light"] .volunteer-copy p,body[data-theme="light"] .volunteer-copy li {
+  color: #69413c;
+}
+
+body[data-theme="light"] .volunteer-art {
+  color: var(--ivory);
+}
+
+body[data-theme="light"] .site-footer {
+  background: #e9d2c5;
+  color: var(--cranberry);
+}
+
+body[data-theme="light"] .hero::after {
+  background:
+    radial-gradient(circle at 90% 34%,
+      rgba(255,255,255,.42) 0%,
+      rgba(240, 166, 150, .18) 12%,
+      rgba(187, 77, 90, .12) 24%,
+      transparent 50%);
+}
+
+body[data-theme="light"] .about-section,
+body[data-theme="light"] .skills-section,
+body[data-theme="light"] .contact-section {
+  background: #fff5f1;
+}
+
+body[data-theme="light"] .projects-section {
+  background: #efd3cd;
+}
+
+body[data-theme="light"] .volunteer-section {
+  background: linear-gradient(130deg, #f2d2cb, #f7e4dc);
+}
+
+/* COLOR-SAFE MODE
+   Pensé pour offrir un contraste plus sûr pour plusieurs formes courantes
+   de daltonisme (surtout rouge/vert). */
+body[data-vision="safe"] {
+  --cranberry: #163a63;
+  --velvet: #275d8c;
+  --beige: #f4efe8;
+  --ivory: #fffdfa;
+}
+
+body[data-vision="safe"] .site-header {
+  background: rgba(15,34,56,.86);
+  color: #fffdfa;
+  border-bottom-color: rgba(255,255,255,.18);
+}
+
+body[data-vision="safe"] .hero {
+  color: #fffdfa;
+  background: radial-gradient(ellipse at 78% 40%, #4e7fb1 0%, #264b72 35%, #14293f 65%, #0d1c2d 100%);
+}
+
+body[data-vision="safe"] .hero::before {
+  background: linear-gradient(90deg, rgba(8,18,29,.38), transparent 55%);
+}
+
+body[data-vision="safe"] .hero::after {
+  background: radial-gradient(circle at 90% 34%,
+    rgba(255,255,255,.32) 0%,
+    rgba(170,210,255,.16) 16%,
+    transparent 50%);
+}
+
+body[data-vision="safe"] .button-primary,
+body[data-vision="safe"] .language-button[aria-pressed="true"],
+body[data-vision="safe"] .filter-button.active {
+  background: #e2a52b;
+  color: #102033;
+  border-color: #f1c463;
+}
+
+body[data-vision="safe"] .button-outline,
+body[data-vision="safe"] .theme-button,
+body[data-vision="safe"] .header-resume,
+body[data-vision="safe"] .language-control {
+  border-color: rgba(255,255,255,.4);
+}
+
+body[data-vision="safe"] .about-section,
+body[data-vision="safe"] .experience-section,
+body[data-vision="safe"] .skills-section,
+body[data-vision="safe"] .contact-section {
+  background: #f8f5ef;
+  color: #163a63;
+}
+
+body[data-vision="safe"] .projects-section,
+body[data-vision="safe"] .volunteer-section,
+body[data-vision="safe"] .site-footer {
+  background: #e8edf3;
+  color: #163a63;
+}
+
+body[data-vision="safe"] .project-card,
+body[data-vision="safe"] .skill-card,
+body[data-vision="safe"] .experience-item[open] .experience-toggle {
+  border-color: #4d79a5;
+}
+
+
+/* ACCESSIBILITÉ — contraste du mode color-safe */
+
+body[data-vision="safe"] .hero-eyebrow,
+body[data-vision="safe"] .hero-role,
+body[data-vision="safe"] .hero-description,
+body[data-vision="safe"] .hero-bottom,
+body[data-vision="safe"] .hero-handwritten {
+  color: #fffdfa;
+}
+
+body[data-vision="safe"] .hero-title-last {
+  -webkit-text-stroke-color: #f6be63;
+}
+
+body[data-vision="safe"] .project-card {
+  background: #173149;
+  color: #fffdfa;
+  border-color: #7094b5;
+}
+
+body[data-vision="safe"] .project-type,
+body[data-vision="safe"] .project-details > p:not(.project-type) {
+  color: #eaf2f7;
+}
+
+/* LIGHT MODE — accents velvet cherry */
+body[data-theme="light"]:not([data-vision="safe"]) .experience-section {
+  background: #f0d8d1;
+}
+
+body[data-theme="light"]:not([data-vision="safe"]) .projects-section {
+  background: linear-gradient(
+    155deg,
+    #f3d9d2 0%,
+    #e9b6b1 100%
+  );
+}
+
+body[data-theme="light"]:not([data-vision="safe"]) .volunteer-section {
+  background: linear-gradient(
+    120deg,
+    #e3aaa7,
+    #f0d4c9
+  );
+}
+
+
+/* ==========================================
+   LIGHT MODE — SUNLIGHT MATCHING DARK MODE
+   Même source, même direction, même diffusion
+   ========================================== */
+
+/* Fond Velvet Cherry : clair à gauche,
+   plus profond à droite pour faire ressortir le soleil */
+body[data-theme="light"]:not([data-vision="safe"]) .hero {
+  background: linear-gradient(
+    105deg,
+    #fff1e9 0%,
+    #f4ddd3 43%,
+    #c78982 76%,
+    #823c42 100%
+  );
+}
+
+/* Protection légère du texte à gauche */
+body[data-theme="light"]:not([data-vision="safe"]) .hero::before {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 241, 233, .50) 0%,
+    transparent 55%
+  );
+}
+
+/* SOLEIL — mêmes coordonnées que le mode sombre */
+body[data-theme="light"]:not([data-vision="safe"]) .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    /* Soleil hors cadre : 108% / 24% */
+    radial-gradient(circle at 108% 24%,
+      rgba(255, 251, 244, 1) 0%,
+      rgba(255, 241, 222, .96) 6%,
+      rgba(255, 223, 192, .72) 14%,
+      rgba(255, 186, 145, .36) 24%,
+      rgba(255, 150, 115, .14) 34%,
+      transparent 48%
+    ),
+
+    /* Lumière qui se rapproche de toi */
+    radial-gradient(circle at 102% 38%,
+      rgba(255, 228, 196, .18) 0%,
+      rgba(236, 132, 111, .10) 20%,
+      transparent 48%
+    ),
+
+    /* Faisceau venant de la droite */
+    linear-gradient(108deg,
+      transparent 58%,
+      rgba(255, 244, 230, .05) 68%,
+      rgba(255, 229, 205, .10) 78%,
+      rgba(255, 215, 186, .13) 88%,
+      rgba(255, 246, 235, .18) 100%
+    );
+
+  filter: blur(18px);
+  mix-blend-mode: normal;
+}
+
+/* DIFFUSION — même emplacement que le mode sombre */
+body[data-theme="light"]:not([data-vision="safe"]) .hero-media::before {
+  content: "";
+  position: absolute;
+
+  width: clamp(300px, 30vw, 520px);
+  height: clamp(420px, 42vw, 700px);
+
+  right: -6%;
+  top: 6%;
+
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at 20% 50%,
+    transparent 0%,
+    rgba(255, 241, 226, .18) 18%,
+    rgba(255, 226, 198, .30) 32%,
+    rgba(255, 199, 159, .22) 46%,
+    rgba(255, 165, 124, .08) 58%,
+    transparent 74%
+  );
+
+  filter: blur(22px);
+  opacity: .95;
+  mix-blend-mode: normal;
+}
+
+/* REBOND LUMINEUX — discret derrière la silhouette */
+body[data-theme="light"]:not([data-vision="safe"]) .portrait-glow {
+  width: clamp(280px, 26vw, 420px);
+  height: clamp(280px, 26vw, 420px);
+
+  right: 18%;
+  top: 18%;
+  left: auto;
+
+  background: radial-gradient(circle,
+    rgba(255, 237, 214, .22) 0%,
+    rgba(232, 114, 101, .10) 34%,
+    transparent 68%
+  );
+
+  filter: blur(26px);
+  opacity: .7;
+}
+
+/* Reflet doux sur le contour de la photo */
+body[data-theme="light"]:not([data-vision="safe"]) .hero-portrait {
+  filter:
+    drop-shadow(-30px 14px 32px rgba(17, 4, 6, .22))
+    drop-shadow(22px -6px 26px rgba(255, 226, 196, .16));
+}
